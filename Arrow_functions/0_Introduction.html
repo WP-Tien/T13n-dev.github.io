@@ -1,0 +1,51 @@
+<meta charset="utf-8"></meta>
+<pre>
+    Trong JavaScript, functions có thể định nghĩa ẩn danh bằng cú pháp 
+    " mũi tên " (=>), đôi khi được gọi là như một biểu thức <b>lambda</b> do tương đồng Common Lisp.
+
+    Dạng đơn giản nhất của hàm mũi tên có các đối số bên trái của => và trả giá trị về bên phải
+    item => item + 1; // -> function(item){return item + 1}
+
+    Function này có thể gọi nhanh bằng việc cung cấp một tham số vào biểu thức:
+    (item => item + 1)(41) // -> 42  
+
+    Nếu hàm mũi tên nhận một tham số, dấu ngoặc tròn xung quanh tham số là tùy chọn( có or không ). 
+
+    const foo = bar => bar + 1;
+    const bar = (baz) => baz + 1;
+</pre>
+<script>
+    item => item + 1; // -> function(item){return item + 1}
+    
+    ( item => item + 1 )( 41 ) // -> 42
+    console.log( ( item => item + 1 )( 41 ) );
+</script>
+<pre>
+    Tuy nhiên, nếu hàm mũi tên ko nhận tham số, hoặc nhiều hơn một tham số nhận vào, một thiết lập mới của dấu ngoặc nhọn phải bao vây lại tất cả tham số.
+
+    (() => "foo")() // -> "foo"
+    ((bow, arrow) => bow + arrow)('I took an arrow ', ' to the knee...')
+    // -> "I took an arrow to the knee..."
+</pre>
+<script>
+    console.log( ( () => "foo" )() ); // -> foo
+
+    console.log( ((bow, arrow) => bow + arrow)('I took an arrow', ' to the knee...') ) // -> "I took an arrow to the knee..."
+</script>
+<pre>
+    Nếu phần thân chức năng không bao gồm biểu thức đơn. nó phải bọc bằng dấu ngoặc đơn và có một return rõ ràng để trả về một kết quả:
+
+    console.log ( ( bar => {
+        const baz = 41;
+
+        return bar + baz;
+    }) (41) );
+</pre>
+
+<script>
+    console.log ( ( bar => {
+        const baz = 41;
+
+        return bar + baz;
+    }) (41) );
+</script>

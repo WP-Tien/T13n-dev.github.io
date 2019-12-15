@@ -1,0 +1,22 @@
+<meta charset="UTF-8"></meta>
+<pre>
+    Bạn có thể sử dụng console.log() kết hợp với trình giữ chổ (placeholders), giống printf trong php thôi :D
+
+    var greet = "Hello", who = "World";
+    console.log("%s, %s!", great, who);
+</pre>
+<script>
+   var greet = "Hello", who = "World";
+    console.log("%s, %s!", greet, who); 
+
+    for (var i =0; i < 5; i ++) {
+        console.log("Hello, %s. You 've called me %d times.", "Bob", i + 1);
+    }
+</script>
+<pre>
+    :D
+    Nếu bạn mở console ở facebook.com thì bạn sẽ thấy thông báo của họ có màu đỏ, không giống như các ví dụ nảy giờ chúng ta đã làm. Để làm được điều đó thì cẩn sử dụng %c trong chuỗi và sử dụng code css ở tham số thứ hai để định nghĩa style:
+</pre>
+<script>
+    console.log("%cStop!", "color: red; font-size: 50px; font-weight: bold; text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);");
+</script>

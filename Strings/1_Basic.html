@@ -1,0 +1,56 @@
+<meta charset="UTF-8"> </meta>
+<script>
+// Strings in Javascript can be enclosed in Single quote  'Hello', double quote "Hello" and ( from ES2015, ES6 ) in template literals (backticks) `hello`.
+var hello = "Hello";
+var world = "world";
+var helloW = `Hello World`; // ES2015 / ES6 
+
+// String can be created from other types using String() function.
+var intString = String(32); 
+console.log( intString );
+var booleanString = String(true);
+console.log( booleanString );
+var nullString = String(null);
+console.log( nullString );
+
+// Or, toString() can be used to convert Numbers, Booleans or Objects to Strings
+var intString1 = (5232).toString(); // "5232"
+console.log(intString1);
+var boolean1 = (false).toString(); // 'false'
+console.log(boolean1);
+var objString = ({}).toString(); // "[object Object]"
+console.log(objString); 
+
+// String also can be created by using String.fromCharCode method.
+console.log ( String.fromCharCode( 104,101,108,108,111 ) ); // "hello"
+
+// Creating a String object using new keyword is allowed, but is not recommended as it behaves like Objects unlike primitive strings.
+var objectString = new String("Yes, I am a String object");
+console.log( typeof objectString );
+console.log( typeof objectString.valueOf() ); // Giá trị nguyên thuỷ(primitive value) của object đang được nói tới. *** Để chuyển đổi một object sang một giá trị nguyên thuỷ
+
+// Concatenating Strings
+// String concatenation can be done with the + concatenation operator, or with the built-in concact() methid on String object prototype.
+var string = "string";
+var number = 32;
+var boolean = true;
+
+console.log( string + number + boolean ); // "string32true"
+
+// String template 
+// String can be created using template literals (backticks) `hello`.
+var greeting = `Hello`;
+
+// With template literals, you can do string interpolation using ${variable} inside template literals;
+
+var place = `World`;
+var greet = `Hello ${place}!`;
+
+console.log( greet );
+
+// You can use String.raw to get backslashes to be in the string without modification.
+console.log( `a\\b` ); // `a\b`
+console.log( String.raw`a\\b` );
+
+
+</script>

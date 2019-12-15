@@ -1,0 +1,29 @@
+<meta charset="UTF-8"></meta>
+<pre>
+    Phương thức console.group và console.groupEnd dùng để gom nhóm các dòng lại với nhau. Hãy tưởng tượng nếu bạn đang debug các hàm lồng lên nhau và nếu các dòng thông tin không được group lại thì chúng sẽ rất khó nhìn, khó phân biệt. Ngày xưa mình debug bằng cách log ra các dòng --------------------------- để phân biệt, nhưng vẫn rất rối. Phương thức group không chỉ giúp phân biệt mà còn hỗ trợ thu gọn các group.
+
+    console.log("This is the outer level");
+    console.group();
+    console.log("Level 2");
+    console.group();
+    console.log("Level 3");
+    console.warn("More of level 3");
+    console.groupEnd();
+    console.log("Back to level 2");
+    console.groupEnd();
+    console.debug("Back to the outer level");
+</pre>
+<script>
+
+    console.log("This is the outer level");
+    console.group();
+    console.log("Level 2");
+    console.group();
+    console.log("Level 3");
+    console.warn("More of level 3");
+    console.groupEnd();
+    console.log("Back to level 2");
+    console.groupEnd();
+    console.debug("Back to the outer level");
+
+</script> 

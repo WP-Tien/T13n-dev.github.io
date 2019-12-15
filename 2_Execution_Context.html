@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Execution Context</title>
+    <style>
+        body {
+            margin: 0 auto;
+            width: 75%;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .txt-center {
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 class="txt-center">Execution Context và Execution Stack trong Javascript</h1>
+
+    <img src="Images_for_Document/javascript-what-is-execution-context-call-stack-ft.png" alt="">
+
+    <p>
+        Nếu bạn đã, đang và muốn trở thành 1 JavaScript Developer? Chắc chắn bạn phải học về Script Program được executed bên trong như thế nào. Việc hiểu những nội dung như execution context (exec context) và execution stack (exec stack) là rất quan trọng. Bởi vì nó giúp ta hiểu được các khái niệm khác nữa trong JavaScript như Hoisting, Scope và Closures. Việc hiểu rõ các khái niệm này sẽ khiến bạn trở thành 1 JavaScript developer giỏi hơn rất nhiều. Vậy thì ta bắt đầu tìm hiểu thôi nào!
+    </p>
+
+    <h2>Execution Context là gì ?</h2>
+    <p>
+        Ta hiểu đơn giản rằng, 1 <b>execution context</b> là 1 khái niệm trừu tượng của môi trường. Nơi mà các đoạn mã JavaScript được <b>evaluated_và _executed</b>. Bất kì đoạn mã nào run trong JavaScript, nó sẽ chạy bên trong <b>exec context</b>.
+    </p>
+    <!-- <ul>
+        <li>Ngữ cảnh thực thi (Execution Context): Khi trang web ta chạy lên, nó sẽ mặc định tạo ra một Global Context là Window. Sau đó, nếu ta tạo một function thì mỗi function sẽ có một Execution Context nữa.</li>
+        <li>Phạm vi(scope, scope chain, lexical scope): Là một phạm vi hay nơi mà biến tồn tại và truy xuất được. Ra khỏi scope thì biến không còn nữa.</li>
+    </ul> -->
+
+
+    <h3>Các loại Execution Context trong JavaScript</h3>
+    <p>
+        <b>Execution context</b> trong JavaScript được chia thành 3 loại:
+    </p>
+    
+    <b>Global Execution Context</b>
+    <ul>
+        <li>Đây là <b>execution context</b> mặc định hay còn là <b>base execution context</b>. Những đoạn code không trong bất cứ function nào sẽ được _executed_trong <b>global execution context</b>.</li>
+        <li>Nó làm 2 nhiêm vụ: 1, Tạo global object - gọi là window object ( Trong trường hợp là browsers ) và thứ 2 là gắn value của this với global object này. Điều cuối cùng là chỉ có <b>duy nhất 1</b>  global execution context trong 1 chương trình.</li>
+    </ul>
+    <b> Function Execution Context </b>
+    <p> Mỗi lần 1 function được invoked, sẽ có 1 <b> execution context </b> mới được tạo ra cho function đó. Mỗi function sẽ có <b> execution context </b> riêng của nó. Nhưng chỉ được tạo ra khi function được invoked hoặc được called. </p>
+    <p> Và có thể có rất nhiều *function execution context*. Bất kể khi nào 1 execution context mới được gọi. Nó sẽ trải qua 1 chuỗi các steps theo thứ tự xác định - ta sẽ thảo luận nó sau. </p>
+    <b>Eval Function Execution Context</b>
+    <p> Code mà được executed bên trong 1 eval function cũng có những execution context riêng của nó, nhưng vì eval không được sử dụng nhiều bởi các developers JavaScript, nên ta sẽ không thảo luận nó trong bài này.</p>
+
+    <p> + Dưới đây là một ví dụ cụ thể: </p>
+    <img src="Images_for_Document/Execution_Context.jpg" alt="">
+    <p> Như hình trên, ta có một global context với viền màu tím, và 3 function contexts. Sẽ chỉ có duy nhất 1 global context, và nó có thể được truy cập sử dụng từ bất cứ context nào trong chương trình cùng source code.</p>
+
+    <h2>Execution Stack</h2>
+    <p>Execution stack còn được biết đến là “calling stack” trong các ngôn ngữ lập trình khác. Đây là 1 stack với cấu trúc LIFO ( Last in, First Out ). Được sử dụng để lưu giữ tất cả exec context đã được tạo ra trong suốt chương trình.</p>
+    <p>Khi JavaScript Engine encounter(gặp) những đoạn script của bạn lần đầu tiên. Nó sẽ tạo ra global exec context và đẩy nó vào trong execution stack hiện tại. Mỗi khi mà engine tìm được 1 function invocation, nó sẽ tạo ra 1 exec context mới cho function đó. Sau đó đẩy nó lên trên đỉnh của stack.</p>
+    <p>Engine sẽ thực thi function mà exec context ở trên đỉnh của stack trước. Sau khi function này complete nó sẽ bị đẩy ra khỏi stack. Và control sẽ đi tới context phía dưới trong stack.</p>
+    <p>Để hiểu rõ hơn ta sẽ cùng xem đoạn code phía dưới:</p>
+    <pre>
+        let a = 'Hello World !';
+
+        function first() {
+            console.log('Inside first function');
+            second();
+            console.log('Again inside first function');
+        }
+
+        function second() {
+            console.log('Inside second function');
+        }
+
+        first();
+        console.log('Inside Global Execution Context');
+    </pre>
+
+    <script>
+        let a = 'Hello World !';
+
+        function first() {
+            console.log('Inside first function');
+            second();
+            console.log('Again inside first function');
+        }
+
+        function second() {
+            console.log('Inside second function');
+        }
+
+        first();
+        console.log('Inside Global Execution Context');
+    </script>
+
+    <p>Khi đoạn code phía trên load trong browser. JavaScript Engine tạo ra 1 global execution context rồi đẩy nó vào execution stack hiện tại. Khi lần gọi first() diễn ra, JavaScript engines tạo ra 1 execution context cho function đó và đẩy nó lên trên đỉnh của execution stack.</p>
+    <p>Đến khi second() function được gọi trong first() function, JavaScript engine lại tạo ra 1 execution context mới cho function này rồi tiếp tục đẩy nó lên trên đỉnh của execution stack. Sau khi second() function kết thúc, nó bị _pop_ra khỏi stack, và control lại đi tiếp tới execution context bên dưới - đó là first() execution context.</p>
+    <p>Cho tới khi first() function kết thúc, execution stack của nó bị xóa khỏi stack và control đi tiếp tới global execution context. Khi tất cả code được _executed_JavaScipt engine xóa gloabl execution context khỏi stack.</p>
+
+
+    <b>5 đặc điểm của execution stack cần nắm :</b>
+    <ul>
+        <li>Xử lý đơn luồng. (single threaded) </li>
+        <li>Xử lý đồng bộ. <b> ( ? ) </b></li>
+        <li>Có duy nhất 1 Global context.</li>
+        <li>Vô hạn function contexts.</li>
+        <li>Mỗi function khi được gọi sẽ sinh ra 1 execution context tương ứng, ngay cả khi nó gọi đến chính nó. </li>
+    </ul>
+
+    <h2>How is the Execution Context create ?</h2>
+    <p> Đến đây, ta đã thấy JavaScript engine đã quản lý những execution context như thế nào. Bây giờ, chúng ta sẽ tìm hiểu xem 1 execution context được tạo ra kiểu gì bởi Javascript engine.</p>
+
+    <p> Execution context được tạo ra qua 2 giai đoạn: 1 là Create Phase, 2 là Execution Phase.</p>
+
+    <b>The Create Phase</b>
+    <p>Trước khi code JavaScript được executed, execution context đi qua giai đoạn creation phase. 3 điều này xảy ra trong suốt giai đoạn creation phase là : </p>
+
+    <ol>
+        <li>Values of <b>this</b> được xác định, còn được gọi là <b> This Binding. </b></li>
+        <li><b> LexicalEnvironment </b> component được khởi tạo.</li>
+        <li><b> VariableEnvironment </b> component được khởi tạo.</li>
+    </ol>
+
+    <pre>
+        ExecutionContext = {
+            ThisBinding = , LexicalEnvironment = { … },
+            VariableEnvironment = { … },
+        }
+    </pre>
+
+
+
+
+    <h1>Tóm tắt</h1>
+    <p> The best way to think of an execution context is as a stack frame, while lexical environments are indeed the scopes. </p>
+ 
+    <p> The respective spec chapters ( <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-lexical-environments">§8.1 Lexical Environments</a>  and <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-execution-contexts">§8.3 Execution Contexts</a>) explain: </p> 
+
+    <ul>
+        <li>
+            Execution contexts contain the current evaluation state of code, a reference to the code (function) itself, and possibly references to the current lexical environments.
+            Execution contexts are managed in a stack.
+        </li>
+        <li>
+            Lexical environments contain an environment record in which the variables are stored, and a reference to their parent environment (if any).
+            Lexical environments build a tree structure.
+        </li>
+    </ul>   
+</body>
+</html>

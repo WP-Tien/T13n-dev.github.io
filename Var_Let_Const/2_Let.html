@@ -1,0 +1,99 @@
+<meta charset="utf-8"></meta>
+<pre>
+    Một trong những nguyên nhân khiến let có thể thay thế var để xử lý vấn đề nêu trên là vì biến let được khai báo sẽ có scope là <b>block scoped {}</b>  
+    chứ không phải globally hay locally scoped.
+
+    let greeting = "say Hi";
+    let times = 4;
+
+    if (times > 3) {
+        let hello = "say Hello instead";
+        console.log(hello); // "say Hello instead"
+    }
+    console.log(hello); // hello is not defined
+</pre>
+<script>
+
+    let greeting = "say Hi";
+    let times = 4;
+
+    if (times > 3) {
+        let hello = "say Hello instead";
+        console.log(hello); // "say Hello instead"
+    }
+    console.log(hello); // hello is not defined
+
+</script>
+<pre>
+
+    Chúng ta có thế thấy là đối với biến có scope là block scoped nếu ra khỏi scope được khai báo thì sẽ không thể sử dụng được nữa.
+
+    let cho phép chúng ta cập nhật giá trị của biến chứ không cho phép chúng ta tái khái báo lại biến đó.
+
+</pre>
+<script>
+
+    let greeting = "say Hi";
+    console.log(greeting); //"say Hi"
+    
+    greeting = "say Hello instead";
+    console.log(greeting); //"say Hello instead"
+
+
+    let greeting = "say Hi";
+    let greeting = "say Hello instead"; // error: Identifier 'greeting' has already been declared
+
+</script>
+<pre>
+    
+    Tuy nhiên, đối với các block khác nhau thì việc tái khai báo biến sẽ không sinh ra lỗi vì đối với từng scope, mỗi biến sẽ được xem xét là 1 biến riêng khác biệt.
+
+    let greeting = "say Hi";
+    if (true) {
+        let greeting = "say Hello instead";
+        console.log(greeting); // "say Hello instead"
+    }
+    console.log(greeting); // "say Hi"
+
+</pre>
+
+<script>
+
+    let greeting = "say Hi";
+    if (true) {
+        let greeting = "say Hello instead";
+        console.log(greeting); // "say Hello instead"
+    }
+    console.log(greeting); // "say Hi"
+
+</script>
+<pre>
+
+    <b>
+        Giống với var, let cũng có tính hoisting tuy nhiên lại khác nhau ở chỗ thay vì var được khởi tạo với giá trị là undefined thì let sẽ không có bất kỳ giá trị khởi tạo nào. 
+        Điều này dẫn đến việc nếu chúng ta sử dụng biến let trước khi khai báo thì sẽ gặp lỗi Reference Error.
+    </b> 
+
+    <b>
+        Callback và let
+        Có một trường hợp dùng let rất hiệu quả đó là sử dụng callback trong một vòng lặp.
+
+        Ví dụ nếu dùng var:        
+    </b>
+    
+</pre>
+<script>
+
+    for( var i = 0; i < 5; i++ ) {
+        setTimeout( function() {
+            console.log('Yo! ', i);
+        }, 1000);
+    }
+
+    for( let i = 0; i < 5; i++ ) {
+        setTimeout( function() {
+            console.log('Yo! ', i);
+        }, 1000);
+    }
+
+</script>

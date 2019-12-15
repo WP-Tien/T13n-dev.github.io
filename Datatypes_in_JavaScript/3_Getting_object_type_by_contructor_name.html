@@ -1,0 +1,106 @@
+<meta charset="UTF-8"></meta>
+<pre>
+    Trong thực tế, bạn có thể cần thu hẹp nó thành loại 'đối tượng' thực sự là gì và một cách để làm điều đó là sử dụng
+    Tên hàm tạo đối tượng để có được hương vị của đối tượng thực sự là: Object.prototype.toString.call (yourObject)
+
+    1.String
+
+    Object.prototype.toString.call("String");
+</pre>
+<script>
+    console.log( Object.prototype.toString.call("String") );
+</script>
+
+<pre>
+    2. Number
+
+    Object.prototype.toString.call(42);
+</pre>
+<script>
+    console.log( Object.prototype.toString.call(42) );
+</script>
+<pre>
+    3. Bool
+
+    Object.prototype.toString.call( true );
+</pre>
+<script>
+    console.log( Object.prototype.toString.call( true ) );
+</script>
+
+<pre>
+    4. Object
+
+    Object.prototype.toString.call(Object()) or
+    Object.prototype.toString.call({});
+</pre>
+<script>
+    console.log( Object.prototype.toString.call({}) );
+</script>
+
+<pre>
+    5. Function
+
+    Object.prototype.toString.call( function(){} );
+</pre>
+<script>
+    console.log( Object.prototype.toString.call( function(){} ) );
+</script>
+
+
+<pre>
+    6. Date
+
+    Object.prototype.toString.call( new Date(2015,10,21) );
+</pre>
+<script>
+    console.log( Object.prototype.toString.call( new Date(2015,10,21) ) );
+</script>
+
+<pre>
+    7. Regex
+
+    Object.prototype.toString.call( new RegExp() ) or
+    Object.prototype.toString.call(/foo/);
+</pre>
+<script>
+    console.log( Object.prototype.toString.call(/foo/) );
+</script>
+
+<pre>
+    8. Array
+
+    Object.prototype.toString.call([]);
+</pre>
+<script>
+    console.log( Object.prototype.toString.call([]) );
+</script>
+
+<pre>
+    9. Null
+
+    Object.prototype.toString.call(null);
+</pre>
+<script>
+    console.log( Object.prototype.toString.call(null) );
+</script>
+    
+
+<pre>
+    10. Undefined
+
+    Object.prototype.toString.call( undefined );
+</pre>
+<script>
+    console.log( Object.prototype.toString.call( undefined ) );
+</script>
+
+
+<pre>
+    11. Error
+
+    Object.prototype.toString.call( Error() );
+</pre>
+<script>
+    console.log( Object.prototype.toString.call( Error()) );
+</script>

@@ -1,0 +1,53 @@
+<meta charset="utf-8"></meta>
+<pre>
+    JavaScript <b>Array</b> lớp là một đối tượng toán cục được sử dụng
+    để khởi tạo một mảng; một danh sách giống như đối tượng.
+
+    var star = new Array();
+    star[0] = "Polaris";
+    star[1] = "Deneb";
+    star[2] = "Vega";
+    star[3] = "Altair";
+
+    console.log( star );
+</pre>
+<script>
+    var star = new Array();
+    star[0] = "Polaris";
+    star[1] = "Deneb";
+    star[2] = "Vega";
+    star[3] = "Altair";
+
+    console.log( star );
+</script>
+<pre>
+    Một cách khởi tạo mảng tường minh hơn:
+    var secondStar = ["Polaris", "Deneb", "Vega", "Altair"];
+
+    console.log( secondStar );
+</pre>
+<script>
+    var secondStar = ["Polaris", "Deneb", "Vega", "Altair"];
+
+    console.log( secondStar );
+</script>
+<pre>
+    Mảng với các giá trị lồng vào :D more complexity.
+
+    var thirdStar = [
+        ["Polaris", "Ursa Minor"],
+        ["Deneb", "Cygnus"],
+        { "name" : "Tien", "age" : 24 },
+        "status"
+    ];
+</pre>
+<script>
+    var thirdStar = [
+        ["Polaris", "Ursa Minor"],
+        ["Deneb", "Cygnus"],
+        { "name" : "Tien", "age" : 24 },
+        "status"
+    ];
+
+    console.log( typeof thirdStar[2] );
+</script>

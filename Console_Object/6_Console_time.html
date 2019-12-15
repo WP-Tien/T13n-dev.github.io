@@ -1,0 +1,30 @@
+<meta charset="UTF-8" ></meta>
+<pre>
+    Vậy còn nếu bạn muốn đếm thời gian giữa hai dòng code thì sao? Có thể ứng dụng để tính thời gian chạy của code, thời gian để hoàn thành một thao tác nào đó, ví dụ như tính thời gian trung bình cần có để nhập một cái form nào đó. Phương thức console.time và console.timeEnd sẽ giúp bạn.
+    Hai phương thức nhận vào một tham số duy nhất là label gọi console.time([label]) để bắt đầu tính thời gian cho [label] và gọi console.time([label]) để ngưng đếm và hiển thị thời gian đã trải qua, thời gian tính bằng ms.
+
+    console.time("answer time");
+    alert("Click to continue");
+    console.timeEnd("answer time");
+
+</pre>
+<script>
+    console.time("answer time");
+    alert("Click to continue");
+    console.timeEnd("answer time");
+
+    var elms = document.getElementsByTagName('*'); 
+
+    console.time('Loop time');
+
+    for ( var i = 0; i < 5000; i ++ ) {
+        for ( var j = 0, length = elms.length; j < length; j ++ ) {
+            // nothing todo;
+        }
+    }
+
+    console.timeEnd('Loop time');
+</script>
+<pre>
+    Lưu ý là nếu bạn sử dụng phương thức này để tính thời gian load tài nguyên từ server, ví dụ như ajax, lazy load image thì thời gian đếm của hàm này là từ lúc request cho đến thời gian hoàn tất nhận body. Còn thời gian trong thẻ Network chỉ là thời gian browser nhận được header mà thôi.
+</pre>

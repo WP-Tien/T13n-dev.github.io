@@ -1,0 +1,148 @@
+<meta charset="utf-8"></meta>
+<pre>
+    <b>Tạo một mảng</b>
+
+    var fruits = ['Apples', 'Bananas'];
+
+    console.log( fruits.length );
+</pre>
+<script>
+   var fruits = ['Apples', 'Bananas'];
+
+    console.log( fruits.length ); 
+</script>
+<pre>
+    <b>Access (index into) an Array item</b>
+    var first = fruits[0];
+    console.log(first);
+
+    var last = fruits[fruits.length - 1];
+    console.log(last);
+</pre>
+<script>
+    var first = fruits[0];
+    console.log(first);
+
+    var last = fruits[fruits.length - 1];
+    console.log(last);
+</script>
+<pre>
+    <b>Loop over an Array</b>
+
+    fruits.forEach(function(item, index, array) {
+        console.log( item, index );
+        // console.log( array )
+    })
+</pre>
+<script>
+    fruits.forEach(function(item, index, array) {
+        console.log( item, index );
+        // console.log( array )
+    })
+</script>
+<pre>
+    <b>Add to the end of an Array</b>
+
+    var newLength = fruits.push('Orange');
+
+    console.log(newLength); // 3
+    console.log(fruits); // new arr
+</pre>
+<script>
+    var newLength = fruits.push('Orange');
+
+    console.log(newLength); // 3
+    console.log(fruits); // Upgraded arr
+</script>
+<pre>
+    <b>Remove from the end of an Array</b>
+
+    var last = fruits.pop(); // remoe Orange (from the end)
+
+    console.log( last ); // Orange
+    console.log( fruits ); // Upgraded arr
+</pre>
+<script>
+    var last = fruits.pop(); // remoe Orange (from the end)
+
+    console.log( last ); // Orange
+    console.log( fruits ); // Upgraded arr
+</script>
+<pre>
+    <b>Remove from the front of an Array</b>
+
+    var first = fruits.shift(); // remove Apple from the front
+
+    console.log( fruits ); // Current arr
+</pre>
+<script>
+    var first = fruits.shift(); // remove Apple from the front
+
+    console.log( 'Remove from the front' );
+    console.log( fruits ); // Current arr
+</script>
+<pre>
+    <b> Add to the front of an Array </b>
+
+    Trái ngược với shift là unshift
+</pre>
+<script>
+    var newLength = fruits.unshift('Strawberry');
+</script>
+<pre>
+    <b>Find the index of an item in the Array</b>
+
+    fruits.push( 'Mango' );
+    
+    console.log( fruits );
+
+    var pos = fruits.indexOf('Banana');
+    console.log( pos ) // Không có thì trả về -1 
+</pre>
+<script>
+    fruits.push( 'Mango' );
+    
+    console.log( fruits );
+
+    var pos = fruits.indexOf('Banana');
+    console.log( pos ) // Không có thì trả về -1 
+</script>
+<pre>
+   <b>Remove an item by index position</b>
+   Đây nó lấy vị trí Banana
+
+   var removedItem = fruits.splice(pos, 1); // start number, delete count
+</pre>
+<script>
+    var removedItem = fruits.splice(pos, 1); // start number, delete count
+
+    // ["Strawberry", "Mango"]
+</script>
+<pre>
+    <b>Remove items from an index position</b>
+
+</pre>
+<script>
+    var vegetables = ['Cabbage', 'Turnip', 'Radish', 'Carrot'];
+
+    console.log( vegetables ); // ["Cabbage", "Turnip", "Radish", "Carrot"]
+
+    var pos = 1, n = 2;
+
+    var removedItems = vegetables.splice(pos, n);
+    // this is how to remove items, n defines the number of items to be removed,
+    // from that position(pos) onward to the end of array.
+    
+    console.log( vegetables ); // ["Cabbage", "Carrot"] (the original array is changed)
+    console.log( removedItems ); // ["Turnip", "Radish"]
+</script>
+<pre>
+    <b>Copy an Array</b>
+    
+    var shallowCopy = fruits.slice(); // this is how to make a copy
+    // ["Strawberry", "Mango"]
+</pre>
+<script>
+    var shallowCopy = fruits.slice(); // this is how to make a copy
+    // ["Strawberry", "Mango"]
+</script>

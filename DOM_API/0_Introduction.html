@@ -1,0 +1,55 @@
+<meta charset="UTF-8"></meta>
+<pre>
+    DOM hay Mô hình hướng đối tượng tài liệu( Document Object Model ) mô tả cấu trúc thư viện như XML và HTML. Trong mỗi thẻ HTML sẽ có những thuộc tính (Properties) và có phân cấp cha - con với các thẻ HTML khác. Sự phân cấp và các thuộc tính của thẻ HTML này ta gọi là selector và trong DOM sẽ có nhiệm vụ xử lý các vấn đề như đổi thuộc tính của thẻ, đổi cấu trúc HTML của thẻ, ... :D
+</pre>
+
+<script>
+    console.log( window );
+</script>
+<pre>
+    Để thay đổi thuộc tính textContent của nó, chúng ta có thể chạy JavaScript sau:
+    
+    document.getElementById("paragraph").textContent = "Hello, World";
+</pre>
+<p id="paragraph" ></p>
+<script>
+    document.getElementById("paragraph").textContent = "Hello, World";
+</script>
+<pre>
+    Điều này sẽ chọn phần tử với id của tag p và gán nó một nội dung text Hello, World
+    Bạn cũng có thể sử dụng JS để tạo một phần tử HTML. Ví dụ, để ý một thư viện HTML với body như sau: 
+    &lsaquo;body&rsaquo;
+        &lsaquo;h1&rsaquo; Adding an element &lsaquo;/h1&rsaquo;
+    &lsaquo;/body&rsaquo;
+    Trong JS, chúng ta tạo mới một phần tử &lsaquo;p&rsaquo; với một thuộc tính textContent và thêm nó vào cuối của html &lsaquo;body&rsaquo;:
+
+    var element = document.createElement('p');
+    element.textContent = "Hello, World";
+    document.body.appendChild(element); // thêm mới một phần tử tới DOM
+
+    Điều đó sẽ thay đổi HTML body của bạn như sau:
+
+    &lsaquo;body&rsaquo;
+        &lsaquo;h1&rsaquo;Adding an element &lsaquo;/h1&rsaquo;
+        &lsaquo;p&rsaquo;Hello, World&lsaquo;p&rsaquo;
+    &lsaquo;/body&rsaquo;
+
+    </body> 
+</pre>
+<script>
+    var element = document.createElement('p');
+    element.textContent = "Hello, World";
+    document.body.appendChild(element);
+</script>
+
+<pre style="color: red;">
+    Note that in order to manipulate elements in the DOM using JavaScript, the JavaScript code must be run after the
+    relevant element has been created in the document. This can be achieved by putting the JavaScript &lsaquo;script&rsaquo; tags
+    after all of your other &lsaquo;body &rsaquo; content. Alternatively, you can also use <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener"> an event listener </a>  to listen to eg. <a href="https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload">window's onload event</a>, 
+    adding your code to that event listener will delay running your code until after the whole content on
+    your page has been loaded.
+    A third way to make sure all your DOM has been loaded, is <a href="https://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful">to wrap the DOM manipulation code with a timeout function of 0 ms</a>. 
+    This way, this JavaScript code is re-queued at the end of the execution queue, which gives the
+    browser a chance to finish doing some non-JavaScript things that have been waiting to finish before attending to
+    this new piece of JavaScript.
+</pre>

@@ -1,0 +1,85 @@
+<meta charset="utf-8"></meta>
+<pre>
+    Arr function ngắn gọn hơn functions
+
+    Với một tham số thì có thể bỏ qua dấu ngoặc
+
+    let greeting = name => {
+        console.log( `Hello, my name is ${name}` );
+    }
+    greeting( 'Tien' );
+
+    let greetingFunction = function(name) {
+        console.log( `Hello, my name is ${name}` );
+    }
+    greetingFunction( 'Tien f' );
+</pre>
+<script>
+
+    let greeting = name => {
+        console.log( `Hello, my name is ${name}` );
+    }
+    greeting( 'Tien' );
+
+    let greetingFunction = function(name) {
+        console.log( `Hello, my name is ${name}` );
+    }
+    greetingFunction( 'Tien f' );
+
+</script>
+<pre>
+
+    Arr function cũng có thể bỏ qua từ khóa <b>return</b> nếu viết single expression :D
+
+    let double = x => x * 2;
+    console.log( double(1) );
+
+    let doublef = function(x) {
+        return x * 2;
+    }
+    console.log( doublef(1) );
+
+</pre>
+<script>
+    let double = x => x * 2;
+    console.log( double(1) );
+
+    let doublef = function(x) {
+        return x * 2;
+    }
+    console.log( doublef(1) );
+</script>
+<pre>
+
+    Ví dụ sử dụng arrow function với các higher-order functions, như: forEach, map, filter,...
+
+    Sử dụng map với function: 
+
+    let arr = [1,2,3,4,5];
+
+    let square1 = arr.map( function(e) {
+        return e * e;
+    });
+    console.log( square1 );
+
+    let square2 = arr.map( e => e * e );
+    console.log( square2 );
+</pre>
+<script>
+
+    let arr = [1,2,3,4,5];
+
+    let square1 = arr.map( function(e) {
+        return e * e;
+    });
+    console.log( square1 );
+
+    let square2 = arr.map( e => e * e );
+    console.log( square2 );
+
+</script>
+<pre>
+
+    
+
+</pre>

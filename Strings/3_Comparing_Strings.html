@@ -1,0 +1,33 @@
+<script>
+
+    // To compare strings alphabetically, use localeCompare(). This returns a negative value if the reference string is lexicographically (alphabetically) before the compared string (the parameter), a positive value if it comes afterwards, and a value of 0 if they are equal.
+
+    var a = "hello";
+    var b = "world";
+
+    console.log( a.localeCompare(b) ); // -1 
+
+    function strcmp(a, b) {
+        if ( a === b ) {
+            return 0;
+        } 
+
+        if ( a > b ) {
+            return 1;
+        }
+
+        return -1;
+    }
+
+    console.log( strcmp( "hello", "world" ) );
+    console.log( strcmp( "world", "world" ) );
+    console.log( strcmp( "world", "hello" ) );
+
+    var arr = ["banana", "cranberries", "apples"];
+    arr.sort(function(a, b) {
+        return a.localeCompare(b);
+    });
+
+    console.log(arr); // [ "apples", "bananas", "cranberries" ]
+
+</script>

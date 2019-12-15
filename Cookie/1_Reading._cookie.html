@@ -1,0 +1,32 @@
+<meta charset="UTF-8"></meta>
+<pre>
+    Nhớ xem introduction để tạo vài cookie để đọc :D 
+
+    Đọc một cookie là đơn giản như viết nó, bởi vì giá trị của đối tượng 
+    document.cookie là cookie. Vì thế bạn có thể sử dụng chuỗi này bất cứ khi 
+    nào bạn muốn truy cập cookie đó. Chuỗi document.cookie sẽ giữ một danh 
+    sách các cặp tên-giá trị phân biệt nhau bởi dấu chấm phảy, ở đây name là 
+    tên của cookie và giá trị là giá trị chuỗi của nó.
+    Bạn có thể sử dụng hàm split() để phá vỡ một chuỗi thành khóa và các giá 
+    trị như sau:
+</pre>
+<script>
+    
+    var cookie_name = "name=", // tên cookie, chạy bài introduction để lấy cookie
+        cookie_array = document.cookie.split(';'),
+        cookie_values;
+
+    for(var i=0; i < cookie_array.length; i++ ) {
+        var cookie= (cookie_array[i]).trim();
+
+        while( cookie.charAt(0) == '' ) 
+            cookie = cookie.substring(1,cookie.length);
+        if( cookie.indexOf(cookie_name) == 0 )
+            cookie_values = cookie.substring(cookie_name.length,cookie.length);
+
+            console.log( cookie_values );
+    }
+
+    
+
+</script>

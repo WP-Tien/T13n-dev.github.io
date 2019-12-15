@@ -1,0 +1,23 @@
+<meta charset="UTF-8"> </meta>
+<pre>
+    Stack trace để biết stack khai báo của hàm thì sử dụng phương thức console.trace
+
+    function foo() {
+        function bar() {
+          console.trace();
+        }
+        bar();
+      }
+    foo();
+
+</pre>
+
+<script>
+    function foo() {
+        function bar() {
+            console.trace();
+        }
+        bar();
+    }
+    foo();
+</script>

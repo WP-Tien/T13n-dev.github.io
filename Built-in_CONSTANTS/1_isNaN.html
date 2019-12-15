@@ -1,0 +1,118 @@
+<meta charset="UTF-8"></meta>
+<pre>
+    Phương thức isNaN() sẽ kiểm tra điều kiện giá trị truyền vào có phải là một số không hợp lệ( Not-A-Numbet) hay không.
+    Để kiểm tra nó chuyển đổi số bằng cách console.log( Number(true) ), một vài ví dụ:
+
+    console.group();
+    console.log ( isNaN(NaN) ); // true
+    console.log ( isNaN(1) ); // false: 1 is a number
+    console.log ( isNaN(-2e-4) ); // false: -2e-4 is a number (-0.0002) in scientific notation
+    // Infinity: vô cực
+    console.log ( isNaN(Infinity) ); // false: Infinity is a number
+    console.log ( isNaN(true) ); // false: converted to 1, which is a number
+    console.log ( isNaN(false) ); // false: converted to 0, which is a number
+    console.log ( isNaN(null) ); // false: converted to 0, which is a number
+    console.log ( isNaN("") ); // false: converted to 0, which is a number
+    console.log ( isNaN(" ") ); // false: converted to 0, which is a number
+    console.log ( isNaN("45.3") ); // false: string representing a number, converted to 45.3
+    console.log ( isNaN("1.2e3") ); // false: string representing a number, converted to 1.2e3
+    console.log ( isNaN("Infinity") ); // false: string representing a number, converted to Infinity
+    console.log ( isNaN(new Date) ); // false: Date object, converted to milliseconds since epoch
+    console.log ( isNaN("10$") ); // true : conversion fails, the dollar sign is not a digit
+    console.log ( isNaN("hello") ); // true : conversion fails, no digits at all
+    console.log ( isNaN(undefined) ); // true : converted to NaN
+    console.log ( isNaN() ); // true : converted to NaN (implicitly undefined)
+    console.log ( isNaN(function(){}) ); // true : conversion fails
+    console.log ( isNaN({}) ); // true : conversion fails
+    console.log ( isNaN([1, 2]) ); // true : converted to "1, 2", which can't be converted to a number
+    console.groupEnd();
+</pre>
+<script>
+
+console.group();
+console.log ( isNaN(NaN) ); // true
+console.log ( isNaN(1) ); // false: 1 is a number
+console.log ( isNaN(-2e-4) ); // false: -2e-4 is a number (-0.0002) in scientific notation
+// Infinity: vô cực
+console.log ( isNaN(Infinity) ); // false: Infinity is a number
+console.log ( isNaN(true) ); // false: converted to 1, which is a number
+console.log ( isNaN(false) ); // false: converted to 0, which is a number
+console.log ( isNaN(null) ); // false: converted to 0, which is a number
+console.log ( isNaN("") ); // false: converted to 0, which is a number
+console.log ( isNaN(" ") ); // false: converted to 0, which is a number
+console.log ( isNaN("45.3") ); // false: string representing a number, converted to 45.3
+console.log ( isNaN("1.2e3") ); // false: string representing a number, converted to 1.2e3
+console.log ( isNaN("Infinity") ); // false: string representing a number, converted to Infinity
+console.log ( isNaN(new Date) ); // false: Date object, converted to milliseconds since epoch
+console.log ( isNaN("10$") ); // true : conversion fails, the dollar sign is not a digit
+console.log ( isNaN("hello") ); // true : conversion fails, no digits at all
+console.log ( isNaN(undefined) ); // true : converted to NaN
+console.log ( isNaN() ); // true : converted to NaN (implicitly undefined)
+console.log ( isNaN(function(){}) ); // true : conversion fails
+console.log ( isNaN({}) ); // true : conversion fails
+console.log ( isNaN([1, 2]) ); // true : converted to "1, 2", which can't be converted to a number
+console.groupEnd();
+
+</script>
+
+<pre>
+    Khác với phương thức Number.isNaN(), isNaN() sẽ chuyển đổi tham số truyền vào thành kiểu số sau đó kiểm tra nó. Phương thức Number.isNaN() sẽ không chuyển kiểu của tham số truyền vào và nó sẽ trả về False với bất kì giá trị nào không phải là số.
+
+    // The one and only
+    Number.isNaN(NaN); // true
+    // Numbers
+    Number.isNaN(1); // false
+    Number.isNaN(-2e-4); // false
+    Number.isNaN(Infinity); // false
+    // Values not of type number
+    Number.isNaN(true); // false
+    Number.isNaN(false); // false
+    Number.isNaN(null); // false
+    Number.isNaN(""); // false
+    Number.isNaN(" "); // false
+    Number.isNaN("45.3"); // false
+    Number.isNaN("1.2e3"); // false
+    Number.isNaN("Infinity"); // false
+    Number.isNaN(new Date); // false
+    Number.isNaN("10$"); // false
+    Number.isNaN("hello"); // false
+    Number.isNaN(undefined); // false
+    Number.isNaN(); // false
+    Number.isNaN(function(){}); // false
+    Number.isNaN({}); // false
+    Number.isNaN([]); // false
+    Number.isNaN([1]); // false
+    Number.isNaN([1, 2]); // false
+    Number.isNaN([true]); // false
+</pre>
+
+<script>
+
+    // The one and only
+    console.log ( Number.isNaN(NaN) ); // true
+    // Numbers
+    Number.isNaN(1); // false
+    Number.isNaN(-2e-4); // false
+    Number.isNaN(Infinity); // false
+    // Values not of type number
+    Number.isNaN(true); // false
+    Number.isNaN(false); // false
+    Number.isNaN(null); // false
+    Number.isNaN(""); // false
+    Number.isNaN(" "); // false
+    Number.isNaN("45.3"); // false
+    Number.isNaN("1.2e3"); // false
+    Number.isNaN("Infinity"); // false
+    Number.isNaN(new Date); // false
+    Number.isNaN("10$"); // false
+    Number.isNaN("hello"); // false
+    Number.isNaN(undefined); // false
+    Number.isNaN(); // false
+    Number.isNaN(function(){}); // false
+    Number.isNaN({}); // false
+    Number.isNaN([]); // false
+    Number.isNaN([1]); // false
+    Number.isNaN([1, 2]); // false
+    Number.isNaN([true]); // false
+
+</script>

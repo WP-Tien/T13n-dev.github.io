@@ -1,0 +1,89 @@
+<meta charset="UTF-8"></meta>
+<pre>
+    Cách đảo ngược chuỗi "phổ biến" nhất trong JavaScript là đoạn mã sau:
+
+    function reverseString(str) {
+        return str.split('').reverse().join('');
+    }
+
+</pre>
+<script>
+function reverseString(str) {
+    return str.split('').reverse().join('');
+}
+
+console.log( reverseString('string') ); // 'gnirts' 
+
+</script>
+<pre>
+    Tuy nhiên, điều này sẽ chỉ hoạt động miễn là chuỗi được đảo ngược không chứa các cặp thay thế. Biểu tượng Astral,
+    tức là các ký tự bên ngoài mặt phẳng đa ngôn ngữ cơ bản, có thể được biểu thị bằng hai đơn vị mã và sẽ dẫn đến điều này
+    kỹ thuật ngây thơ để tạo ra kết quả sai. Ngoài ra, các ký tự có dấu kết hợp (ví dụ: diaeresis) sẽ xuất hiện
+    trên ký tự "tiếp theo" hợp lý thay vì ký tự ban đầu được kết hợp với.
+
+    '?????.'.split('').reverse().join(''); //fails
+</pre>
+<script>
+
+    console.log( '?????.'.split('').reverse().join('') );
+
+</script>
+<pre>
+    Explanation
+    Section Explanation Result str The input string "string"
+    String.prototype.split(
+    deliminator )
+    Splits string str into an array. The parameter "" means to split between each character.
+    ["s","t","r","i","n","g"]
+    Array.prototype.reverse() Returns the array from the split string with its elements in reverse order. ["g","n","i","r","t","s"]
+    Array.prototype.join( deliminator
+    )
+    Joins the elements in the array together into a string. The "" parameter means an empty deliminator (i.e., the elements of the array are put right next to each other).
+    "gnirts"
+
+    Using spread
+
+    function reverseString(str) {
+        return [...String(str)].reverse().join('');
+    }
+</pre>
+<script>
+    function reverseString(str) {
+        return [...String(str)].reverse().join('');
+    }
+
+    console.group();
+    console.log( [...String('stackoverflow')] );
+    console.log( reverseString('stackoverflow') );
+    console.log( reverseString(1337) );
+    console.log( reverseString( [1,2,3]) );
+    console.groupEnd();
+</script>
+<pre>
+    Custom reverse() function
+    
+    // Custom reverse() function
+    function reverse(string) {
+        var strRev = '';
+        for ( var i = string.length - 1; i >= 0 ; i -- ) {
+            strRev += string[i];
+        }
+        return strRev;
+    }
+
+    console.log ( reverse("zebra") );
+</pre>
+<script>
+
+    // Custom reverse() function
+    function reverse(string) {
+        var strRev = '';
+        for ( var i = string.length - 1; i >= 0 ; i -- ) {
+            strRev += string[i];
+        }
+        return strRev;
+    }
+
+    console.log ( reverse("zebra") );
+
+</script>

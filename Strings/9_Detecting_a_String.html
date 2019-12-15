@@ -1,0 +1,73 @@
+<meta charset="UTF-8"> </meta>
+<pre>
+    Để phát hiện liệu một tham số là một chuỗi nguyên thủy ( primitive ), sử dụng typeof:
+
+    var aString = "my string";
+    var anInt = 5;
+    var anObj = {};
+    console.log ( typeof aString === "string" ); // true
+    console.log ( typeof anInt === "string" ); // false
+    console.log ( typeof anObj === "string" ); // false
+</pre>
+<script>
+    // To detect whether a parameter is a primitive string, use typeof:
+    var aString = "my string";
+    var anInt = 5;
+    var anObj = {};
+    console.group();
+    console.log ( typeof aString === "string" ); // true
+    console.log ( typeof anInt === "string" ); // false
+    console.log ( typeof anObj === "string" ); // false
+    console.groupEnd();
+</script>
+<pre>
+    Nếu bạn từng có một String object, thông qua new String("something"), sau đó như trên sẽ không hoạt động. Trong ví dụ, chúng ta có thể sử dụng instanceof: 
+
+    var aStringObj = new String('my string');
+    console.log ( aStringObj instanceof String ); // true
+</pre>
+<script>
+    var aStringObj = new String('my string'); 
+    console.log ( aStringObj instanceof String ); // true
+</script>
+<pre>
+    Để đầy đủ 2 ví dụ trên, chúng ta có thể viết một hàm đơn giản sau:
+
+    var isString = function(value) {
+        return typeof value === "string" || value instanceof String;
+    }
+
+    var isString = function(value) {
+        return typeof value === "string" || value instanceof String;
+    }
+
+    var aString = "Primitive String";
+    var aStringObj = new String("String Object");
+    console.log ( isString(aString ) );
+    console.log ( isString(aStringObj) ); // true 
+    console.log ( isString({}) ); // false 
+    console.log ( isString(5) ); // false
+
+</pre>
+<script>
+    var isString = function(value) {
+        return typeof value === "string" || value instanceof String;
+    }
+
+    var aString = "Primitive String";
+    var aStringObj = new String("String Object");
+    console.log ( isString( aString ) );
+    console.log ( isString( aStringObj) ); // true 
+    console.log ( isString( {} ) ); // false 
+    console.log ( isString( 5 ) ); // false
+</script>
+<pre>
+    Hoặc bạn có thể sự dụng chức năng toString của Object. Việc này rất hữu ít nếu bạn phải kiểm tra các loại khác cũng như nói trong một mệnh đề switch:
+
+    var pString = "Primitive String";
+    var oString = new String("Object Form of String");
+
+    Object.prototype.toString.call(pString); //"[object String]"
+    Object.prototype.toString.call(oString); //"[object String]"
+
+</pre>

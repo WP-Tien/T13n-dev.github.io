@@ -1,0 +1,29 @@
+<meta charset="utf-8" ></meta>
+<pre>
+    Ngoài việc nhập tên bạn có thể cung cấp một  export mặc định.
+
+    // circle.js
+    export const PI = 3.14;
+    export default function area(radius) {
+        return PI * radius * radius;
+    }
+
+    import circleArea from './circle.js';
+    console.log( myModule.PI )
+
+    Lưu ý rằng xuất mặc định hoàn toàn tương đương với xuất có tên với mặc định tên và ràng buộc đã nhập (circleArea ở trên)
+    chỉ đơn giản là một bí danh. Các mô-đun trước có thể được viết như:
+
+    import { default as circleArea } from './circle';
+    console.log(circleArea(4));
+
+    Bạn chỉ có thể có một export mặc định cho mỗi module. Tên của export mặc định có thể được bỏ qua. (default tự động chạy khỏi gọi name)
+
+    // named export: must have a name
+    export const PI = 3.14;
+    // default export: name is not required
+    export default function (radius) {
+    return PI * radius * radius;
+    }
+</pre>
+<script src="script.js" type="module"></script>
