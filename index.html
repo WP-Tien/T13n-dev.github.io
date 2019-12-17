@@ -1,110 +1,582 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Tien JS</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
-  </head>
-  <body>
-    <div class="l-site">
-      <div class="l-nav">
-        <nav class="nav">
-          <ul>
-            <li class="nav-primary"><a href="#">Home</a></li>
-            <li class="nav-primary"><a href="#">Approach</a></li>
-            <li class="nav-primary"><a href="#">Work</a></li>
-            <li class="nav-primary"><a href="#">People</a></li>
-            <li class="nav-secondary"><a href="#">Jobs</a></li>
-            <li class="nav-secondary"><a href="#">Blog</a></li>
-            <li class="nav-secondary"><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="l-page">
-        <div class="menu">
-          <div class="menu-hamburger"></div>
-        </div>
-        <section class="band band-a">
-          <div class="band-container">
-            <div class="band-inner">
-              <h1>Lorem ipsum dolor</h1>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                porta, tellus ut convallis luctus, lorem diam mattis arcu, eu
-                consequat dui tortor eget lacus. Donec metus ligula, rutrum
-                volutpat neque vel, porta tincidunt dui. Phasellus convallis
-                tristique nunc. Integer nunc nunc, finibus a maximus at, viverra
-                ut lorem. Etiam id velit risus. Vestibulum sapien mauris,
-                fermentum nec luctus nec, fringilla non orci. Nullam blandit
-                porta tincidunt. Donec placerat pretium dapibus. Ut interdum
-                lorem eu nibh tincidunt vulputate. Aenean aliquam gravida quam,
-                vel pulvinar odio. Pellentesque sed feugiat ligula. Quisque
-                sagittis porttitor dui, ac lacinia mauris tempor vel. Donec
-                rutrum lorem id nulla consequat vulputate.
-              </p>
-            </div>
-          </div>
-        </section>
-        <section class="band band-b">
-          <div class="band-container">
-            <div class="band-inner">
-              <h1>Proin sed aliquet</h1>
-              <p>
-                Proin sed aliquet tellus. Etiam bibendum ligula in rhoncus
-                imperdiet. Sed a sollicitudin dolor. Integer leo enim, tincidunt
-                vel sagittis vel, vehicula non quam. Nunc mattis bibendum massa
-                vel volutpat. Duis ligula ante, elementum luctus felis ut,
-                ultricies aliquam dolor. Nunc et est mattis, fermentum nisl et,
-                volutpat lacus. Nam ullamcorper urna non odio luctus volutpat.
-                Praesent efficitur in risus at porttitor.
-              </p>
-            </div>
-          </div>
-        </section>
-        <section class="band band-c">
-          <div class="band-container">
-            <div class="band-inner">
-              <h1>Sed consectetur neque</h1>
-              <p>
-                Sed consectetur neque et libero placerat, dapibus laoreet sem
-                condimentum. Nunc suscipit pharetra nunc ac interdum. Quisque
-                justo magna, porttitor quis bibendum eu, ultrices nec justo.
-                Cras mattis ut lectus at ullamcorper. Mauris vestibulum est sed
-                sapien euismod, a pretium arcu lacinia. Donec pharetra non massa
-                ac rhoncus. In in magna felis. Ut porta nec nunc a condimentum.
-                Nullam ultricies sollicitudin enim ac scelerisque. Nam porta,
-                leo in euismod suscipit, elit lorem eleifend neque, non
-                hendrerit quam odio quis felis. Praesent id ullamcorper neque,
-                in fermentum mauris. Curabitur sodales erat sed nisi dictum, sit
-                amet vehicula eros malesuada.
-              </p>
-            </div>
-          </div>
-        </section>
-        <section class="band band-d">
-          <div class="band-container">
-            <div class="band-inner">
-              <h1>Nulla tempor laoreet</h1>
-              <p>
-                Nulla tempor laoreet sagittis. Donec molestie odio sit amet
-                tincidunt egestas. Ut ut nisi nec felis vehicula pharetra. Nunc
-                ullamcorper vitae lectus vitae consectetur. Quisque pharetra
-                lorem metus, at lacinia magna malesuada non. Maecenas tristique
-                risus quis massa convallis tempus in non turpis. Mauris pretium
-                purus sed lacus euismod, eu cursus massa commodo. Nulla in erat
-                ut ex imperdiet iaculis. Aliquam erat volutpat. Sed pellentesque
-                et neque vitae accumsan. Etiam nec dolor quis est dignissim
-                viverra. Nunc et pulvinar felis. Nulla in varius turpis.
-                Curabitur non diam libero. Nam porttitor orci in metus sagittis
-              </p>
-            </div>
-          </div>
-        </section>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Tien JS</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+  <script src="js/scripts.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="l-nav">
+      <nav class="nav">
+        <ol>
+          <!-- <li>
+              <a href="#">JavaScript</a>
+              <ul>
+                <li>
+                  <a href="#"
+                    >Execution Context và Execution Stack trong Javascript</a
+                  >
+                </li>
+              </ul>
+            </li> -->
+        </ol>
+      </nav>
     </div>
-  </body>
+    <div class="l-page">
+      <div class="menu">
+        <div class="menu-hamburger"></div>
+      </div>
+      <section class="band" id="Execution_Context_va_Execution_Stack_trong_Javascript">
+        <h1>
+          Execution Context và Execution Stack trong Javascript
+        </h1>
+
+        <img src="Images_for_Document/javascript-what-is-execution-context-call-stack-ft.png" alt="" />
+
+        <p>
+          Nếu bạn đã, đang và muốn trở thành 1 JavaScript Developer? Chắc
+          chắn bạn phải học về Script Program được executed bên trong như
+          thế nào. Việc hiểu những nội dung như execution context (exec
+          context) và execution stack (exec stack) là rất quan trọng. Bởi
+          vì nó giúp ta hiểu được các khái niệm khác nữa trong JavaScript
+          như Hoisting, Scope và Closures. Việc hiểu rõ các khái niệm này
+          sẽ khiến bạn trở thành 1 JavaScript developer giỏi hơn rất
+          nhiều. Vậy thì ta bắt đầu tìm hiểu thôi nào!
+        </p>
+
+        <h2 id="execution_context_la_gi">Execution Context là gì ?</h2>
+        <p>
+          Ta hiểu đơn giản rằng, 1 <b>execution context</b> là 1 khái niệm
+          trừu tượng của môi trường. Nơi mà các đoạn mã JavaScript được
+          <b>evaluated_và _executed</b>. Bất kì đoạn mã nào run trong
+          JavaScript, nó sẽ chạy bên trong <b>exec context</b>.
+        </p>
+
+        <h3>Các loại Execution Context trong JavaScript</h3>
+        <p>
+          <b>Execution context</b> trong JavaScript được chia thành 3
+          loại:
+        </p>
+
+        <b>Global Execution Context</b>
+        <ul>
+          <li>
+            Đây là <b>execution context</b> mặc định hay còn là
+            <b>base execution context</b>. Những đoạn code không trong bất
+            cứ function nào sẽ được _executed_trong
+            <b>global execution context</b>.
+          </li>
+          <li>
+            Nó làm 2 nhiêm vụ: 1, Tạo global object - gọi là window object
+            ( Trong trường hợp là browsers ) và thứ 2 là gắn value của
+            this với global object này. Điều cuối cùng là chỉ có
+            <b>duy nhất 1</b> global execution context trong 1 chương
+            trình.
+          </li>
+        </ul>
+        <b> Function Execution Context </b>
+        <p>
+          Mỗi lần 1 function được invoked, sẽ có 1
+          <b> execution context </b> mới được tạo ra cho function đó. Mỗi
+          function sẽ có <b> execution context </b> riêng của nó. Nhưng
+          chỉ được tạo ra khi function được invoked hoặc được called.
+        </p>
+        <p>
+          Và có thể có rất nhiều *function execution context*. Bất kể khi
+          nào 1 execution context mới được gọi. Nó sẽ trải qua 1 chuỗi các
+          steps theo thứ tự xác định - ta sẽ thảo luận nó sau.
+        </p>
+        <b>Eval Function Execution Context</b>
+        <p>
+          Code mà được executed bên trong 1 eval function cũng có những
+          execution context riêng của nó, nhưng vì eval không được sử dụng
+          nhiều bởi các developers JavaScript, nên ta sẽ không thảo luận
+          nó trong bài này.
+        </p>
+
+        <p>+ Dưới đây là một ví dụ cụ thể:</p>
+        <img src="Images_for_Document/Execution_Context.jpg" alt="" />
+        <p>
+          Như hình trên, ta có một global context với viền màu tím, và 3
+          function contexts. Sẽ chỉ có duy nhất 1 global context, và nó có
+          thể được truy cập sử dụng từ bất cứ context nào trong chương
+          trình cùng source code.
+        </p>
+
+        <h2 id="execution_stack">Execution Stack</h2>
+        <p>
+          Execution stack còn được biết đến là “calling stack” trong các
+          ngôn ngữ lập trình khác. Đây là 1 stack với cấu trúc LIFO ( Last
+          in, First Out ). Được sử dụng để lưu giữ tất cả exec context đã
+          được tạo ra trong suốt chương trình.
+        </p>
+        <p>
+          Khi JavaScript Engine encounter(gặp) những đoạn script của bạn
+          lần đầu tiên. Nó sẽ tạo ra global exec context và đẩy nó vào
+          trong execution stack hiện tại. Mỗi khi mà engine tìm được 1
+          function invocation, nó sẽ tạo ra 1 exec context mới cho
+          function đó. Sau đó đẩy nó lên trên đỉnh của stack.
+        </p>
+        <p>
+          Engine sẽ thực thi function mà exec context ở trên đỉnh của
+          stack trước. Sau khi function này complete nó sẽ bị đẩy ra khỏi
+          stack. Và control sẽ đi tới context phía dưới trong stack.
+        </p>
+        <p>Để hiểu rõ hơn ta sẽ cùng xem đoạn code phía dưới:</p>
+        <pre>
+                    let abc = 'Hello World !';
+            
+                    function first() {
+                        console.log('Inside first function');
+                        second();
+                        console.log('Again inside first function');
+                    }
+            
+                    function second() {
+                        console.log('Inside second function');
+                    }
+            
+                    first();
+                    console.log('Inside Global Execution Context');
+                </pre>
+
+        <script>
+                // let abc = "Hello World !";
+
+                // function first() {
+                //   console.log("Inside first function");
+                //   second();
+                //   console.log("Again inside first function");
+                // }
+
+                // function second() {
+                //   console.log("Inside second function");
+                // }
+
+                // first();
+                // console.log("Inside Global Execution Context");
+        </script>
+
+        <p>
+          Khi đoạn code phía trên load trong browser. JavaScript Engine
+          tạo ra 1 global execution context rồi đẩy nó vào execution stack
+          hiện tại. Khi lần gọi first() diễn ra, JavaScript engines tạo ra
+          1 execution context cho function đó và đẩy nó lên trên đỉnh của
+          execution stack.
+        </p>
+        <p>
+          Đến khi second() function được gọi trong first() function,
+          JavaScript engine lại tạo ra 1 execution context mới cho
+          function này rồi tiếp tục đẩy nó lên trên đỉnh của execution
+          stack. Sau khi second() function kết thúc, nó bị _pop_ra khỏi
+          stack, và control lại đi tiếp tới execution context bên dưới -
+          đó là first() execution context.
+        </p>
+        <p>
+          Cho tới khi first() function kết thúc, execution stack của nó bị
+          xóa khỏi stack và control đi tiếp tới global execution context.
+          Khi tất cả code được _executed_JavaScipt engine xóa gloabl
+          execution context khỏi stack.
+        </p>
+
+        <b>5 đặc điểm của execution stack cần nắm :</b>
+        <ul>
+          <li>Xử lý đơn luồng. (single threaded)</li>
+          <li>Xử lý đồng bộ. <b> ( ? ) </b></li>
+          <li>Có duy nhất 1 Global context.</li>
+          <li>Vô hạn function contexts.</li>
+          <li>
+            Mỗi function khi được gọi sẽ sinh ra 1 execution context tương
+            ứng, ngay cả khi nó gọi đến chính nó.
+          </li>
+        </ul>
+
+        <h2 id="how_is_the_execution_context_create">How is the Execution Context create ?</h2>
+        <p>
+          Đến đây, ta đã thấy JavaScript engine đã quản lý những execution
+          context như thế nào. Bây giờ, chúng ta sẽ tìm hiểu xem 1
+          execution context được tạo ra kiểu gì bởi Javascript engine.
+        </p>
+
+        <p>
+          Execution context được tạo ra qua 2 giai đoạn: 1 là Create
+          Phase, 2 là Execution Phase.
+        </p>
+
+        <b>The Create Phase</b>
+        <p>
+          Trước khi code JavaScript được executed, execution context đi
+          qua giai đoạn creation phase. 3 điều này xảy ra trong suốt giai
+          đoạn creation phase là :
+        </p>
+
+        <ol>
+          <li>
+            Values of <b>this</b> được xác định, còn được gọi là
+            <b> This Binding. </b>
+          </li>
+          <li><b> LexicalEnvironment </b> component được khởi tạo.</li>
+          <li><b> VariableEnvironment </b> component được khởi tạo.</li>
+        </ol>
+
+        <pre>
+                    ExecutionContext = {
+                        ThisBinding = , LexicalEnvironment = { … },
+                        VariableEnvironment = { … },
+                    }
+              </pre>
+
+        <h2 id="this_binding">This Binding</h2>
+        <p>Trong global execution context, value of <span class="tomato">this</span> tham chiếu tới global object. (
+          <span class="tomato">this</span> tham chiếu tới Window Object ). </p>
+
+        <p>Trong functione execution context, value of <span class="tomato">this</span> phục thuôc vào cách function
+          được gọi như thế nào. Nếu nó được gọi bởi 1 object reference, thìa value of <span class="tomato">this</span>
+          được gán vào object đó, nếu không thì value of <span class="tamato">this</span> được gán vào global object
+          hoặc `undefined` ( in strict mode ). Ví dụ: </p>
+<pre>
+  let person = {
+    name: 'Tien',
+    birthYear: 1995,
+    calcAge: function() {
+      console.log( 2019 - this.birthYear );
+    }
+  }
+
+  person.calcAge();
+  // 'this' refers to 'person', because 'calcAge' was called with 'person' object reference
+
+  let calculateAge = person.calcAge;
+  // console.log( typeof calculateAge );
+  calculateAge();
+  // 'this' refers to the global window object, because no object reference was given
+</pre>
+        <h2 id="lexical_evironment">Lexical Evironment</h2>
+        <p>
+          Lexical Environment là 1 'loại kỹ thuật' được dùng để define sự kết hợp của Identifiers tới các variables
+          riêng biệt và những functions dựa trên <b>lexical nesting structure of ECMAScript code</b>. 1 Lexical
+          Environment bao gồm 1 Environment Record và 1 biến null có thể tham chiếu tới Lexical Environment bên ngoài.
+        </p>
+        <p> Ta hiểu đơn giản như sau: <i>Lexical environment là 1 cấu trức giữ **identifier-variable mappng** (ở đây
+            **dentifier** tham chiếu tới tên của variables/function, và **variable** là 1 tham chiếu tới những actual
+            object. [bao gồm function type object] hoặc [primitive value])</i></p>
+        <p>Trong Lexical Environment, được chia ra thành 2 components: (1) <b>environment record</b> và (2) là 1
+          <b>reference to outer environment</b> </p>
+        <ol>
+          <li> <b>Environment record</b> là 1 nơi mà variable và function declaration được lưu trữ. </li>
+          <li> <b>Reference to the outer environemt</b> có nghĩa là nó truy cập tới lexical environment bên ngoài của nó.
+          </li>
+        </ol>
+        <p>Lexical environment lại được chia tiếp ra thành 2 loại:</p>
+        <ol>
+          <li><b>Global environment</b> (trong global exec context) là 1 Lexical Environment - không có outer
+            environment. Outer environment là <span class="tomato">null</span>. Nó có global object (window object) và
+            những methods hay properties.</li>
+          <li>(vd. array methods) bên trong <b>environment record</b> như các variables được dùng định nhĩa. Và value of
+            <span class="tamoto">this</span> sẽ tham chiếu tới global object. </li>
+          <li><b>Function environment:</b> Tại đây, các variables được định nghĩa bên trong function sẽ được lưu giữ tại
+            <b>environment record.</b> Sự tham chiếu tới outer environemt có thể là global environment hoặc 1 <b>outer
+              function environemt</b> đang chứa <b>inner function</b></li>
+        </ol>
+
+        <b>Chú ý</b>
+        <p>Với <b>function environment,</b> environment record còn chứa 1 <span class="tomato">arguments</span> object
+          mà nó contain mapping giữa các index và các argument được truyền vào function và length number của những
+          arguments đó nữa. Ví dụ 1 argument object của function phía dưới được thể hiện như sau:</p>
+
+        <!-- <script>
+
+          function foo(a, b) {
+            var c = a + b;
+          }
+          foo(2, 3);
+
+                // argument object
+                // Argument: {0:2, 1: 3, length: 2}
+        </script> -->
+
+        <p>Trong <b>environment record</b> lại được chia tiếp ra thành 2 loại:</p>
+        <ol>
+          <li><b>Declarative environment record:</b> lưu trữ những variables, functions, và các parameters. 1 function
+            environment chứa declarative environment record.</li>
+          <li><b>Object environment record:</b> dùng để xác định mối liên kết giữa những variable và function xuất hiện
+            trong global execution context. 1 global environment chứa object environment record.</li>
+        </ol>
+        <p>1 cách trừu tượng, lexical environment sẽ được biểu diễn như sau:</p>
+        <pre>
+                GlobalExectionContext = {
+                  LexicalEnvironment: {
+                    EnvironmentRecord: {
+                      Type: "Object",
+                      _// Identifier bindings go here_ }
+                    outer: <null>
+                  }
+                }
+                
+                FunctionExectionContext = {
+                  LexicalEnvironment: {
+                    EnvironmentRecord: {
+                      Type: "Declarative",
+                      _// Identifier bindings go here_ }
+                    outer: <Global or outer function environment reference>
+                  }
+                }
+              </pre>
+        <b>Variable Environment:</b>
+        <p>Nó cũng được coi là Lexical Environment. Bên cạnh đó, Environment record của nó sẽ giữ những bindings được
+          tạo ra bởi các VariableStatements trong <b>exec context.</b> </p>
+        <p>Như đã nói bên trên, variable environment cũng là 1 lexical environment. Vì thế nó cũng có những properties
+          của 1 lexical environment. </p>
+        <p> Trong ES6, 1 điều khác biệt giữa LexicalEnvironmet component và VariableEnvironment là “the former” được sử
+          dụng để lưu giữ function declaration và các variables ( <span class="tomato">let</span> và <span
+            class="tomato">const</span> ), sau này thì nó chỉ được dùng để lư giữ variable ( <span
+            class="tomato">var</span> ) bindings thôi.</p>
+        <p>Đoạn code bên dưới sẽ làm rõ những gì chúng ta vừa thảo luận bên trên:</p>
+<pre>
+  let a = 20;
+  const b = 30;
+  var c;
+
+  function multiply(e, f) {
+  var g = 20;
+  return e * f * g;
+  }
+
+  c = multiply(20, 30);
+</pre>
+<!-- <script>
+  let a = 20;
+  const b = 30;
+  var c;
+
+  function multiply(e, f) {
+  var g = 20;
+  return e * f * g;
+  }
+
+  c = multiply(20, 30);
+</script> -->
+
+        <p><b> The exec context </b> sẽ được biểu diễn như sau: </p>
+<pre>
+        GlobalExectionContext = {
+
+          ThisBinding: <Global Object>,
+        
+          LexicalEnvironment: {
+            EnvironmentRecord: {
+              Type: "Object",
+              // Identifier bindings go here
+              a: < uninitialized >,
+              b: < uninitialized >,
+              multiply: < func >
+            }
+            outer: <null>
+          },
+        
+          VariableEnvironment: {
+            EnvironmentRecord: {
+              Type: "Object",
+              // Identifier bindings go here
+              c: undefined,
+            }
+            outer: <null>
+          }
+        }
+        
+        FunctionExectionContext = {
+        
+          ThisBinding: <Global Object>,
+        
+          LexicalEnvironment: {
+            EnvironmentRecord: {
+              Type: "Declarative",
+              // Identifier bindings go here
+              Arguments: {0: 20, 1: 30, length: 2},
+            },
+            outer: <GlobalLexicalEnvironment>
+          },
+        
+        VariableEnvironment: {
+            EnvironmentRecord: {
+              Type: "Declarative",
+              // Identifier bindings go here
+              g: undefined
+            },
+            outer: <GlobalLexicalEnvironment>
+          }
+        }
+      </pre>
+        <b>Chú ý</b>
+        <p> <b> Function exec context </b> chỉ được tạo ra khi lời gọi multiplyfuncton được encountered. </p>
+        <p>Như bạn thấy, let và const variables được định nghĩa những lại không có bất kì value assoiated nào, nhưng khi
+          var variables được định nghĩa thì lại được gán là undifined.</p>
+        <p>Lý do là vì trong suốt quá trình creation phase, các mã code của ta sẽ được scanned cho các variable và
+          function declarations, trong khi function declaration được lưu giữ trong environment của riêng nó, thì các
+          variables được khởi tạo lại được gán là undefined (trong trường hợp var) hoặc là uninitialized (trong trường
+          hợp let và const).</p>
+        <p>Đó là lý do vì sao bạn có thể truy cập những var variables được defined trước khi mà chúng được declared (mặc
+          dù vẫn là undefined) nhưng bạn sẽ gặp phải lỗi tham chiếu khi truy cập các let và const variables trước khi
+          chúng được declaraed.</p>
+        <b>This is, what we call hoisting.</b>
+        <b>Execution phase</b>
+        <p>Đây là phần đơn giản nhất trong bài. Trong giai đoạn này, khi các assignments tới tất cả các variables đã
+          xong. Lúc đó, mã code của chúng ta sẽ được executed.</p>
+        <p>Chú ý* - Trong suốt giai đoạn execution*, nếu Javascript engine không thể tìm thế value of let variable mà đã
+          được daclared trong source code, nó sẽ gán value đó là undefined</p>
+        <b>Conclusion</b>
+        <b>Conclusion</b>
+        <p>
+          Vậy là chúng ta đã cùng thảo luận chương trình JavaScript được executed bên trong ra sao. Bạn không cần phải
+          học hết tất cả các khái niệm trên để trở thành 1 JavaScript developer giỏi. Nhưng việc hiểu được những khái
+          niệm này sẽ giúp bạn rất nhiều. Bạn sẽ dễ dàng học sâu hơn về các khái niệm khác như <b>Hoisting, Scope,
+            Closures.</b>
+        </p>
+      </section>
+      <section class="band">
+        <h1>Hoisting Javascript</h1>
+        <img src="Images_for_Document/Hoisting.jpg" alt="Hoisting">
+        <p>
+          <span class="tomato"> Hoisting </span>  là một khái niệm khá hay trong JavaScript tuy nhiên lại ít được mọi người để ý do nó có đôi chút phức tạp cũng như mọi người ít quan tâm đến cách thức hoạt động bên trong ngôn ngữ lập trình.
+          Trong bài viết này mình, mình sẽ chỉ ra khái niệm cũng như cách thức hoạt động bên trong. Do kiến thức còn hạn chế nhiều nên sẽ có nhiều lỗi, mong các bạn góp ý để mình hoàn thiện kiến thức. 
+        </p>
+
+        <h2 id="mot_so_khai_niem_can_nam">Một số khái niệm cần nắm</h2>
+        <b>JavaScript has function-level scope</b>
+        <p>Hãy xem đoạn code bằng C sau: </p> 
+<pre>
+#include <stdio.h>
+  int main() {
+    int x = 1;
+      printf("%d, ", x); // 1
+      if (1) {
+        int x = 2;
+          printf("%d, ", x); // 2
+      }
+      printf("%d\n", x); // 1
+  }
+</pre>
+        <p>Kết quả nhận được lần lượt là 1, 2, 1 bới vì họ hàng nhà C có thuộc tính block-level scope, vì thế trong đoạn lệnh if, một scope mới được tạo ra, biến x được tạo ra trong scope mới mà không ảnh hưởng tới biến x nằm ở scope bên ngoài.</p>
+        <p>Tuy nhiên, với JavaScript :</p>
+<pre>
+  var x = 1;
+  console.log(x); // 1
+  if (true) {
+    var x = 2;
+      console.log(x); // 2
+  }
+  console.log(x); // 2
+</pre>
+          <h2 id="hoisting_of_variables" >Hoisting of variables ?</h2>
+          <p> Hoisting là hành động mặc định của Javascript, nó sẽ chuyển phần khai báo lên phía trên top Trong Javascript, một biến (variable) có thể được khai báo sau khi được sử dụng </p>
+          <pre>
+            #ex1: 
+            console.log( a );
+          </pre>
+          <p> Kết quả không có gì lạ: raise lỗi a is not define, bởi biến a chưa được khai báo ở đâu cả </p>
+          <pre>
+            #ex2: 
+            console.log( a );
+            a = ' Hello hoisting';
+          </pre>
+          <p> Ví dụ này có vẻ phức tạp hơn ví dụ trên "rất nhiều" nhưng kết quả vẫn chỉ có một: a is not define </p>
+          <pre>
+            #Ex3:
+            var a;
+            console.log(a);
+          </pre>
+          <p> Output sẽ là undefined vì a đã được khai báo nhưng vẫn chưa được gán giá trị </p>
+<pre>
+#Ex4:
+console.log(a);
+var a;
+</pre>
+          <p> Thật tình cờ và thật bất ngờ, kết quả ra trùng với Ex3, đều là undefined Tại sao lại như vậy ??? </p>
+<pre>
+#Ex5
+console.log(a);
+var a = 'Hello Hoisting'
+#Output = ???
+</pre>
+          <p> Kết quả sẽ được diễn giải theo sơ đồ sau: </p>
+          <img src="Images_for_Document/hoisting.png" alt="">
+          <p>Giải thích:</p>
+          <ul>
+            <li>Trình biên dịch của Javascript sẽ phân tách phần var a = 'Hello Hoisting' thành 2 phần là khai báo và gán giá trị
+              
+                  Khai báo: var a
+                  Gán giá trị a = 'Hello Hoisting'
+              
+              </li>
+              <li>
+                Theo Hoisting, Javascipt sẽ chuyển phần khai báo lên trên top. Vì vậy, sẽ chỉ có phần khai báo được chuyển lên trên top, còn phần gán giá trị vẫn giữ nguyên thứ tự nên vẫn ở dưới Vậy nên Output sẽ là undefined
+              </li>
+          </ul>
+
+          <h2 id="hoisting_of_function">Hoisting of function ?</h2>
+          <p>Trình biên dịch Javascript sẽ chuyển phần khai báo lên trên top giống như cách làm với biến. Ví dụ 6:</p>
+          <pre>
+            say_something('YOLO');
+            function say_something(a){
+                console.log(a);
+            }
+          </pre>
+          <p>Output cũng giống như với phần biến YOLO</p>
+          <pre>
+            #Ex7:
+            do_something();
+            function do_something(){
+                console.log(a);
+                var a = 'fly';
+            }
+          </pre>
+          <p>Kết quả sẽ được diễn giải theo sơ đồ sau: </p>
+          <img src="Images_for_Document/hoisting2.png" alt="">
+          <p>Giải thích:</p>
+          <ul>
+            <li>Cũng giống như với phần 1, phần bên trong của hàm do_something cũng được trình biên dịch sử dụng hoisting.</li>
+            <li>Nhưng phần khai báo chỉ được chuyển lên trên top của hàm do_something chứ không phải của chương trình</li>
+          </ul>
+          <p>Vậy nên, Output sẽ là undefined</p>
+          <h2 id="hoisting_function_vs_hoisting_variable"> Hoisting function vs Hoisting variable </h2>
+          <p>Trình biên dịch Javascript sẽ chuyển phần đinh nghĩa của hàm trước phần khai báo của biến Ví dụ 8:</p>
+          <pre>
+var show_me;
+show_me();
+function show_me() {
+  console.log('Money');
+}
+show_me = function() {
+  console.log('Diamond');
+}
+          </pre>
+          <p>Theo định nghĩa trên, output sẽ là Money</p>
+          <p>
+            Những hàm khai báo sau nếu trùng tên sẽ ghi đè lên hàm khai báo trước
+          </p>
+<pre>
+var show_me;
+show_me();
+function show_me(){
+  console.log('Money');
+}
+show_me = function(){
+  console.log('Diamond');
+}
+function show_me(){
+  console.log('Gem');
+}
+</pre>
+<p>Output sẽ là Gem</p>
+    </div>
+  </div>
+</body>
 </html>
