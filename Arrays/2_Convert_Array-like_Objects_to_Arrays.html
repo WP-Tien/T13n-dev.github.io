@@ -1,0 +1,110 @@
+<meta charset="utf-8"></meta>
+<pre>
+    1. Array.from:
+    const arrayLike = {
+        0: 'Value 0',
+        1: 'Value 1',
+        length: 2
+    }
+    
+    // arrayLike.forEach( value => { // Errors
+    //     // Do stuff 
+    // } );
+    
+    const realArray = Array.from(arrayLike);
+    realArray.forEach( (value, index) => { // Works
+        console.log( index );
+    } )
+</pre>
+<script>
+    // const arrayLike = {
+    //     0: 'Value 0',
+    //     1: 'Value 1',
+    //     length: 2
+    // }
+
+    // arrayLike.forEach( value => { // Errors
+    //     // Do stuff 
+    // } );
+
+    // const realArray = Array.from(arrayLike);
+    // realArray.forEach( (value, index) => { // Works
+    //     console.log( index );
+    // } )
+</script>
+<pre>
+    2. for...of:
+    var realArray = [];
+    for (const element of arrayLike) {
+        realArray.append(element);
+    }
+</pre>
+<script>
+    // const realArray = [];
+
+    // const arrayLike = {
+    //     0: 'Value 0',
+    //     1: 'Value 1',
+    //     length: 2
+    // };
+
+    // tham khảo thêm tại: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/is_not_iterable
+    // for ( let element of Object.keys(arrayLike) ) {
+        
+    //     var value = arrayLike[element];
+    //     realArray.push(value);
+
+    // }
+
+    // console.log( realArray );
+</script>
+<pre>
+    3. Object.values:
+
+    const arrayLike = {
+        0: 'Value 0',
+        1: 'Value 1',
+        length: 2
+    };
+
+    var realArray = Object.values( arrayLike );
+
+    console.log( realArray );
+</pre>
+<script>
+    // const arrayLike = {
+    //     0: 'Value 0',
+    //     1: 'Value 1',
+    //     length: 2
+    // };
+
+    // var realArray = Object.values( arrayLike );
+
+    // console.log( realArray );
+</script>
+<pre>   
+    4. Use Array.prototype.slice like so:
+
+    var arrayLike = {
+        0: 'Value 0',
+        1: 'Value 1',
+        length: 2
+    };
+    var realArray = Array.prototype.slice.call(arrayLike);
+    realArray = [].slice.call(arrayLike); // Shorter version
+    
+    realArray.indexOf('Value 1'); // Wow! this works
+</pre>
+<script>
+
+    var arrayLike = {
+        0: 'Value 0',
+        1: 'Value 1',
+        length: 2
+    };
+    var realArray = Array.prototype.slice.call(arrayLike);
+    // realArray = [].slice.call(arrayLike); // Shorter version
+    
+    console.log ( realArray.indexOf('Value 1') ); // Wow! this works
+
+</script>

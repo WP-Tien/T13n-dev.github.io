@@ -1,0 +1,108 @@
+<meta charset="utf-8"></meta>
+<pre>
+    The filter() method accepts a test function, and returns a new array containing only the elements of the original
+    array that pass the test provided
+    
+    var numbers = [ 5, 32, 43, 4 ];
+
+    var odd = numbers.filter(function(n) {
+        return n % 2 !==0;
+    });
+
+    console.log( odd );
+</pre>
+<script>
+    // var numbers = [ 5, 32, 43, 4 ];
+
+    // var odd = numbers.filter(function(n) {
+    //     return n % 2 !==0;
+    // });
+
+    // console.log( odd );
+</script>
+<pre>
+    arr functions
+    let odd = numbers.filter( n => n % 2 !== 0 );
+    // can be shortened to ( n => n % 2 )
+    
+    console.log( odd );
+</pre>
+<script>
+    // let odd = numbers.filter( n => n % 2 !== 0 );
+    // can be shortened to ( n => n % 2 )
+    
+    // console.log( odd );
+</script>
+<pre>
+    It also works on an array of objects:
+
+    var people = [{
+        id: 1,
+        name: "John",
+        age: 28
+    }, {
+        id: 2,
+        name: "Jane",
+        age: 31
+    }, {
+        id: 3,
+        name: "Peter",
+        age: 55
+    }];
+
+    var young = people.filter(function(person) {
+        return person.age < 35;
+    })
+
+    console.log( young );
+</pre>
+<script>
+    var people = [{
+        id: 1,
+        name: "John",
+        age: 28
+    }, {
+        id: 2,
+        name: "Jane",
+        age: 31
+    }, {
+        id: 3,
+        name: "Peter",
+        age: 55
+    }];
+
+    // var young = people.filter(function(person) {
+    //     return person.age < 35;
+    // })
+
+    // console.log( young );
+</script>
+<pre>
+    You can search in the whole array for a value like this:  
+    var young = people.filter((obj) => {
+        var flag = false;
+            Object.values(obj).forEach((val) => {
+            if(String(val).indexOf("J") > -1) {
+                flag = true;
+                return;
+                }
+            });
+            if(flag) return obj;
+        });
+    
+        console.log( young );  
+</pre>
+<script>
+    var young = people.filter((obj) => {
+    var flag = false;
+        Object.values(obj).forEach((val) => {
+        if(String(val).indexOf("J") > -1) {
+            flag = true;
+            return;
+            }
+        });
+        if(flag) return obj;
+    });
+
+    console.log( young );
+</script>

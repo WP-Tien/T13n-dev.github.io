@@ -1,7 +1,29 @@
 <meta charset="utf-8"></meta>
 <pre>
     JavaScript <b>Array</b> lớp là một đối tượng toán cục được sử dụng
-    để khởi tạo một mảng; một danh sách giống như đối tượng.
+    để khởi tạo một mảng; một danh sách giống như đối tượng "Arrays-lie Objects" là biểu diễn đối tượng của Mảng với thuộc tính chiều dài, xem ví dụ:
+    <pre>
+        var realArray = ['a', 'b', 'c'];
+        var arrayLike = {
+           0: 'a',
+           1: 'b',
+           2: 'c',
+           length: 3 
+        };
+    </pre>
+    <script>
+        // var realArray = ['a', 'b', 'c'];
+        // var arrayLike = {
+        //    0: 'a',
+        //    1: 'b',
+        //    2: 'c',
+        //    length: 3 
+        // };
+    
+        // console.log(realArray);
+        // console.log(arrayLike);
+    </script>
+
 
     var star = new Array();
     star[0] = "Polaris";
@@ -18,7 +40,7 @@
     star[2] = "Vega";
     star[3] = "Altair";
 
-    console.log( star );
+    // console.log( star );
 </script>
 <pre>
     Một cách khởi tạo mảng tường minh hơn:
@@ -29,7 +51,7 @@
 <script>
     var secondStar = ["Polaris", "Deneb", "Vega", "Altair"];
 
-    console.log( secondStar );
+    // console.log( secondStar );
 </script>
 <pre>
     Mảng với các giá trị lồng vào :D more complexity.
@@ -49,5 +71,5 @@
         "status"
     ];
 
-    console.log( typeof thirdStar[2] );
+    // console.log( typeof thirdStar[2] );
 </script>

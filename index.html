@@ -242,7 +242,7 @@
           được gọi như thế nào. Nếu nó được gọi bởi 1 object reference, thìa value of <span class="tomato">this</span>
           được gán vào object đó, nếu không thì value of <span class="tamato">this</span> được gán vào global object
           hoặc `undefined` ( in strict mode ). Ví dụ: </p>
-<pre>
+        <pre>
   let person = {
     name: 'Tien',
     birthYear: 1995,
@@ -272,7 +272,8 @@
           <b>reference to outer environment</b> </p>
         <ol>
           <li> <b>Environment record</b> là 1 nơi mà variable và function declaration được lưu trữ. </li>
-          <li> <b>Reference to the outer environemt</b> có nghĩa là nó truy cập tới lexical environment bên ngoài của nó.
+          <li> <b>Reference to the outer environemt</b> có nghĩa là nó truy cập tới lexical environment bên ngoài của
+            nó.
           </li>
         </ol>
         <p>Lexical environment lại được chia tiếp ra thành 2 loại:</p>
@@ -340,7 +341,7 @@
             class="tomato">const</span> ), sau này thì nó chỉ được dùng để lư giữ variable ( <span
             class="tomato">var</span> ) bindings thôi.</p>
         <p>Đoạn code bên dưới sẽ làm rõ những gì chúng ta vừa thảo luận bên trên:</p>
-<pre>
+        <pre>
   let a = 20;
   const b = 30;
   var c;
@@ -352,7 +353,7 @@
 
   c = multiply(20, 30);
 </pre>
-<!-- <script>
+        <!-- <script>
   let a = 20;
   const b = 30;
   var c;
@@ -366,7 +367,7 @@
 </script> -->
 
         <p><b> The exec context </b> sẽ được biểu diễn như sau: </p>
-<pre>
+        <pre>
         GlobalExectionContext = {
 
           ThisBinding: <Global Object>,
@@ -441,18 +442,21 @@
             Closures.</b>
         </p>
       </section>
-      <section class="band">
+      <section class="band" id="hoisting_javascript">
         <h1>Hoisting Javascript</h1>
         <img src="Images_for_Document/Hoisting.jpg" alt="Hoisting">
         <p>
-          <span class="tomato"> Hoisting </span>  là một khái niệm khá hay trong JavaScript tuy nhiên lại ít được mọi người để ý do nó có đôi chút phức tạp cũng như mọi người ít quan tâm đến cách thức hoạt động bên trong ngôn ngữ lập trình.
-          Trong bài viết này mình, mình sẽ chỉ ra khái niệm cũng như cách thức hoạt động bên trong. Do kiến thức còn hạn chế nhiều nên sẽ có nhiều lỗi, mong các bạn góp ý để mình hoàn thiện kiến thức. 
+          <span class="tomato"> Hoisting </span> là một khái niệm khá hay trong JavaScript tuy nhiên lại ít được mọi
+          người để ý do nó có đôi chút phức tạp cũng như mọi người ít quan tâm đến cách thức hoạt động bên trong ngôn
+          ngữ lập trình.
+          Trong bài viết này mình, mình sẽ chỉ ra khái niệm cũng như cách thức hoạt động bên trong. Do kiến thức còn hạn
+          chế nhiều nên sẽ có nhiều lỗi, mong các bạn góp ý để mình hoàn thiện kiến thức.
         </p>
 
         <h2 id="mot_so_khai_niem_can_nam">Một số khái niệm cần nắm</h2>
         <b>JavaScript has function-level scope</b>
-        <p>Hãy xem đoạn code bằng C sau: </p> 
-<pre>
+        <p>Hãy xem đoạn code bằng C sau: </p>
+        <pre>
 #include <stdio.h>
   int main() {
     int x = 1;
@@ -464,9 +468,11 @@
       printf("%d\n", x); // 1
   }
 </pre>
-        <p>Kết quả nhận được lần lượt là 1, 2, 1 bới vì họ hàng nhà C có thuộc tính block-level scope, vì thế trong đoạn lệnh if, một scope mới được tạo ra, biến x được tạo ra trong scope mới mà không ảnh hưởng tới biến x nằm ở scope bên ngoài.</p>
+        <p>Kết quả nhận được lần lượt là 1, 2, 1 bới vì họ hàng nhà C có thuộc tính block-level scope, vì thế trong đoạn
+          lệnh if, một scope mới được tạo ra, biến x được tạo ra trong scope mới mà không ảnh hưởng tới biến x nằm ở
+          scope bên ngoài.</p>
         <p>Tuy nhiên, với JavaScript :</p>
-<pre>
+        <pre>
   var x = 1;
   console.log(x); // 1
   if (true) {
@@ -475,62 +481,65 @@
   }
   console.log(x); // 2
 </pre>
-          <h2 id="hoisting_of_variables" >Hoisting of variables ?</h2>
-          <p> Hoisting là hành động mặc định của Javascript, nó sẽ chuyển phần khai báo lên phía trên top Trong Javascript, một biến (variable) có thể được khai báo sau khi được sử dụng </p>
-          <pre>
+        <h2 id="hoisting_of_variables">Hoisting of variables ?</h2>
+        <p> Hoisting là hành động mặc định của Javascript, nó sẽ chuyển phần khai báo lên phía trên top Trong
+          Javascript, một biến (variable) có thể được khai báo sau khi được sử dụng </p>
+        <pre>
             #ex1: 
             console.log( a );
           </pre>
-          <p> Kết quả không có gì lạ: raise lỗi a is not define, bởi biến a chưa được khai báo ở đâu cả </p>
-          <pre>
+        <p> Kết quả không có gì lạ: raise lỗi a is not define, bởi biến a chưa được khai báo ở đâu cả </p>
+        <pre>
             #ex2: 
             console.log( a );
             a = ' Hello hoisting';
           </pre>
-          <p> Ví dụ này có vẻ phức tạp hơn ví dụ trên "rất nhiều" nhưng kết quả vẫn chỉ có một: a is not define </p>
-          <pre>
+        <p> Ví dụ này có vẻ phức tạp hơn ví dụ trên "rất nhiều" nhưng kết quả vẫn chỉ có một: a is not define </p>
+        <pre>
             #Ex3:
             var a;
             console.log(a);
           </pre>
-          <p> Output sẽ là undefined vì a đã được khai báo nhưng vẫn chưa được gán giá trị </p>
-<pre>
+        <p> Output sẽ là undefined vì a đã được khai báo nhưng vẫn chưa được gán giá trị </p>
+        <pre>
 #Ex4:
 console.log(a);
 var a;
 </pre>
-          <p> Thật tình cờ và thật bất ngờ, kết quả ra trùng với Ex3, đều là undefined Tại sao lại như vậy ??? </p>
-<pre>
+        <p> Thật tình cờ và thật bất ngờ, kết quả ra trùng với Ex3, đều là undefined Tại sao lại như vậy ??? </p>
+        <pre>
 #Ex5
 console.log(a);
 var a = 'Hello Hoisting'
 #Output = ???
 </pre>
-          <p> Kết quả sẽ được diễn giải theo sơ đồ sau: </p>
-          <img src="Images_for_Document/hoisting.png" alt="">
-          <p>Giải thích:</p>
-          <ul>
-            <li>Trình biên dịch của Javascript sẽ phân tách phần var a = 'Hello Hoisting' thành 2 phần là khai báo và gán giá trị
-              
-                  Khai báo: var a
-                  Gán giá trị a = 'Hello Hoisting'
-              
-              </li>
-              <li>
-                Theo Hoisting, Javascipt sẽ chuyển phần khai báo lên trên top. Vì vậy, sẽ chỉ có phần khai báo được chuyển lên trên top, còn phần gán giá trị vẫn giữ nguyên thứ tự nên vẫn ở dưới Vậy nên Output sẽ là undefined
-              </li>
-          </ul>
+        <p> Kết quả sẽ được diễn giải theo sơ đồ sau: </p>
+        <img src="Images_for_Document/hoisting.png" alt="">
+        <p>Giải thích:</p>
+        <ul>
+          <li>Trình biên dịch của Javascript sẽ phân tách phần var a = 'Hello Hoisting' thành 2 phần là khai báo và gán
+            giá trị
 
-          <h2 id="hoisting_of_function">Hoisting of function ?</h2>
-          <p>Trình biên dịch Javascript sẽ chuyển phần khai báo lên trên top giống như cách làm với biến. Ví dụ 6:</p>
-          <pre>
+            Khai báo: var a
+            Gán giá trị a = 'Hello Hoisting'
+
+          </li>
+          <li>
+            Theo Hoisting, Javascipt sẽ chuyển phần khai báo lên trên top. Vì vậy, sẽ chỉ có phần khai báo được chuyển
+            lên trên top, còn phần gán giá trị vẫn giữ nguyên thứ tự nên vẫn ở dưới Vậy nên Output sẽ là undefined
+          </li>
+        </ul>
+
+        <h2 id="hoisting_of_function">Hoisting of function ?</h2>
+        <p>Trình biên dịch Javascript sẽ chuyển phần khai báo lên trên top giống như cách làm với biến. Ví dụ 6:</p>
+        <pre>
             say_something('YOLO');
             function say_something(a){
                 console.log(a);
             }
           </pre>
-          <p>Output cũng giống như với phần biến YOLO</p>
-          <pre>
+        <p>Output cũng giống như với phần biến YOLO</p>
+        <pre>
             #Ex7:
             do_something();
             function do_something(){
@@ -538,17 +547,18 @@ var a = 'Hello Hoisting'
                 var a = 'fly';
             }
           </pre>
-          <p>Kết quả sẽ được diễn giải theo sơ đồ sau: </p>
-          <img src="Images_for_Document/hoisting2.png" alt="">
-          <p>Giải thích:</p>
-          <ul>
-            <li>Cũng giống như với phần 1, phần bên trong của hàm do_something cũng được trình biên dịch sử dụng hoisting.</li>
-            <li>Nhưng phần khai báo chỉ được chuyển lên trên top của hàm do_something chứ không phải của chương trình</li>
-          </ul>
-          <p>Vậy nên, Output sẽ là undefined</p>
-          <h2 id="hoisting_function_vs_hoisting_variable"> Hoisting function vs Hoisting variable </h2>
-          <p>Trình biên dịch Javascript sẽ chuyển phần đinh nghĩa của hàm trước phần khai báo của biến Ví dụ 8:</p>
-          <pre>
+        <p>Kết quả sẽ được diễn giải theo sơ đồ sau: </p>
+        <img src="Images_for_Document/hoisting2.png" alt="">
+        <p>Giải thích:</p>
+        <ul>
+          <li>Cũng giống như với phần 1, phần bên trong của hàm do_something cũng được trình biên dịch sử dụng hoisting.
+          </li>
+          <li>Nhưng phần khai báo chỉ được chuyển lên trên top của hàm do_something chứ không phải của chương trình</li>
+        </ul>
+        <p>Vậy nên, Output sẽ là undefined</p>
+        <h2 id="hoisting_function_vs_hoisting_variable"> Hoisting function vs Hoisting variable </h2>
+        <p>Trình biên dịch Javascript sẽ chuyển phần đinh nghĩa của hàm trước phần khai báo của biến Ví dụ 8:</p>
+        <pre>
 var show_me;
 show_me();
 function show_me() {
@@ -558,11 +568,11 @@ show_me = function() {
   console.log('Diamond');
 }
           </pre>
-          <p>Theo định nghĩa trên, output sẽ là Money</p>
-          <p>
-            Những hàm khai báo sau nếu trùng tên sẽ ghi đè lên hàm khai báo trước
-          </p>
-<pre>
+        <p>Theo định nghĩa trên, output sẽ là Money</p>
+        <p>
+          Những hàm khai báo sau nếu trùng tên sẽ ghi đè lên hàm khai báo trước
+        </p>
+        <pre>
 var show_me;
 show_me();
 function show_me(){
@@ -575,8 +585,15 @@ function show_me(){
   console.log('Gem');
 }
 </pre>
-<p>Output sẽ là Gem</p>
+        <p>Output sẽ là Gem</p>
+      </section>
+      <section>
+
+      </section>
+
+
     </div>
   </div>
 </body>
+
 </html>
