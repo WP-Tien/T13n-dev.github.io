@@ -1,0 +1,24 @@
+<meta charset="UTF-8"></meta>
+<pre>
+    console.dir (object) hiển thị danh sách tương tác các thuộc tính của đối tượng JavaScript được chỉ định. Đầu ra là
+    được trình bày dưới dạng một danh sách phân cấp với các hình tam giác tiết lộ cho phép bạn xem nội dung của các đối tượng con
+</pre>
+<script>
+    var myObject = {
+        "foo" : {
+            "bar" : "data"
+        }
+    };
+
+    console.dir(myObject);
+</script>
+<pre>
+    console.dirxml (object) in một biểu diễn XML của các phần tử hậu duệ của đối tượng nếu có thể, hoặc
+    Đại diện JavaScript nếu không. Gọi console.dirxml () trên các phần tử HTML và XML tương đương với cách gọi
+    console.log ()
+</pre>
+<script>
+    console.dirxml( document );
+
+    console.log( document );
+</script>

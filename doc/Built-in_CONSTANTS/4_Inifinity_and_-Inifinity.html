@@ -1,0 +1,28 @@
+<script>
+
+    // Infinity is a property of the global object (therefore a global variable) that represents mathematical infinity. It is a reference to Number.POSITIVE_INFINITY
+    console.log ( 1 / 0 ); // infinity
+
+    // To get -Infinity you negate Infinity, or get a reference to it in Number.NEGATIVE_INFINITY
+    console.log( -(Infinity) );
+
+    // example ( console to view )
+
+    Infinity > 123192310293; // true
+    -Infinity < -123192310293; // true
+    1 / 0; // Infinity
+    Math.pow(123123123, 9123192391023); // Infinity
+    Number.MAX_VALUE * 2; // Infinity
+    23 / Infinity; // 0
+    -Infinity; // -Infinity
+    -Infinity === Number.NEGATIVE_INFINITY; // true
+    -0; // -0 , yes there is a negative 0 in the language
+    0 === -0; // true
+    1 / -0; // -Infinity
+    1 / 0 === 1 / -0; // false
+    Infinity + Infinity; // Infinity
+    var a = 0, b = -0;
+    a === b; // true
+    1 / a === 1 / b; // false
+
+</script>

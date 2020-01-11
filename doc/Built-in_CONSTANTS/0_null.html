@@ -1,0 +1,31 @@
+<meta charset="UTF-8"></meta>
+<pre>
+    <b>null</b> được sử dụng để diễn tả sự vắng mặt có chủ ý của một giá trị đối tượng và là một giá trị nguyên thủy ( primitive value ). Không giống <b> Undefined </b>, nó không phải là một thuộc tính của đối tượng toàn cục.
+
+    Nó bằng <b>undefined</b> nhưng nó không giống hay đồng nhất ( khác kiểu ) với <b> undefined </b>. Xem ví dụ để hiểu thêm.
+
+    console.log( null == undefined ); // true
+    console.log( null === undefined ); // false 
+
+    Cẩn thận: <b>typeof</b> null là object
+    console.log( typeof null ); // objects
+
+    Để kiểm tra đúng nếu một giá trị là <b>null</b>, so sánh nó với biểu thức bằng chính xác ( === )
+
+    var a = null;
+    a === null; // true
+</pre>
+<script>
+    console.log( null == undefined ); // true
+    console.log( null === undefined ); // false 
+
+    // CAREFUL: The typeof null is 'object'
+    console.log( typeof null ); // objects
+
+
+    // To properly check if a value is null, compare it with the strict equality operator
+
+    var a = null;
+
+    console.log( a === null ); // true
+</script>

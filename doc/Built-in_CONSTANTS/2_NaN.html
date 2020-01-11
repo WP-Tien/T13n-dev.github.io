@@ -1,0 +1,21 @@
+<meta charset="utf-8"></meta>
+<pre>
+    NaN là viết tắt của "Không phải là số." Khi một hàm toán học hoặc hoạt động trong JavaScript không thể trả về một số cụ thể, nó sẽ trả về giá trị NaN thay thế.
+
+    Nó là một thuộc tính của đối tượng toàn cục :D và tham chiếu đến Number.NaN
+    console.log ( window.hasOwnProperty( 'NaN' ) );
+
+    
+Có lẽ khó hiểu, NaN vẫn được coi là một con số :v
+</pre>
+<script>
+    console.log ( window.hasOwnProperty( 'NaN' ) ); // true
+
+    //  NaN is still considered a number.
+    console.log( typeof NaN );
+
+    // Don't check for NaN using the equality operator. See isNaN instead. 
+    console.log( NaN == NaN ); // false 
+    console.log( NaN === NaN ); // false
+
+</script>

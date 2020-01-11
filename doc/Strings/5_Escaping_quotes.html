@@ -1,0 +1,20 @@
+<script>
+
+    // if your string is enclosed in single quotes you need to escape the inner literal quoote with backslash \
+    var text = 'L\'albero means tree in Italian';
+    console.log( text ); // "L'albero means tree in Italian"
+
+    // Special attention must be given to escaping quotes if you're storing HTML representations within a String, since HTML strings make large use of quotations i.e. in attributes:
+    var content =  "<p class=\"special\">Hello World!</p>"; // valid String
+    console.log( content );
+    var hello = '<p class="special">I\'d like to say "Hi"</p>'; // valid String
+    console.log( hello );
+
+    // Quotes in HTML strings can also be represented using &apos; (or &#39;) as a single quote and &quot; ( or &#34;) as double quotes.
+    // Note: The use of &apos; and &quot; will not overwrite double quotes that browsers can automatically place on attribute quotes. For example <p class=special> being made to <p class="special">, using &quot; can lead to <p class=""special""> where \" will be <p class="special">.
+   
+    // These use backticks (`) instead of single or double quotes. 
+    var x = `"Escaping " and ' can become very annoying`;
+    console.log( x ); 
+
+</script>

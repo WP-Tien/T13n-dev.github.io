@@ -1,0 +1,15 @@
+{
+    "browserSyncOptions": {
+        "proxy": "http://localhost/nguyenhuutien/",
+        "notify": false
+	},
+	"browserSyncWatchFiles": ["./css/*.css", "./js/scripts.js", "./*.html"],
+    "paths" : {
+        "js" : "./js",
+        "css" : "./css",
+        "img" : "./img",
+        "sass" : "./sass",
+        "src" : "./src",
+        "node": "./node_modules/"
+    }
+}

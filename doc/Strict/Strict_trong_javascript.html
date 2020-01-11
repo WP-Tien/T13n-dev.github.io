@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Nhầm để chăn nguy cơ gõ nhầm tên biến, việc khai báo biến bắt buộc phải dùng từ khóa var.
+        // Chế độ strict được kích hoạt bằng cú pháp rất giống với cú pháp dùng trong Perl    
+        function doSomething(){
+            "use strict";
+            // x = 4; // tạo ra lỗi cú pháp
+            var x = 4;
+        }
+
+        // eval is evaluates Tìm một biểu thức
+        // Trong chế độ Strict eval() không thể tạo một biến hoặc hàm mới để dùng bên ngoài câu lệnh eval().
+        function testStrict(){
+            // "use strict"; // tắt mở use strict để test
+            eval("var testVar = 2;");
+            
+            alert( eval("2 + 3") );
+            
+            alert(testVar); //Tạo ra lỗi cú pháp
+        }
+
+        testStrict()
+    </script>
+</body>
+</html>

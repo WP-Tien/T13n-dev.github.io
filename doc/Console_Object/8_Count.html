@@ -1,0 +1,30 @@
+<meta charset="UTF-8"> </meta>
+<pre>
+    Nhiều khi cần phải đếm số lần gọi một đoạn code nào đó. Nếu bạn từng giống mình, sử dụng một biến toàn cục, rồi đặt dòng code tăng biến cục bộ vào nơi cần đếm thì đã đến lúc quên cách đó đi. Phương thức console.count sẽ làm việc đếm đó. (flag)
+    Phương thức này nhận vào một tham số là label, và chỉ đếm riêng cho từng label đó, nhờ vậy bạn có thể đếm cùng lúc nhiều label khác nhau: 
+
+    var user = "";
+    function greet() {
+        console.count(user);
+        return "hi " + user;
+    }
+    user = "bob";
+    greet();
+    user = "alice";
+    greet();
+    greet();
+    console.count("bob"); // đổi user để biết dc sự thay đổi
+</pre>
+<script>
+    var user = "";
+    function greet() {
+        console.count(user);
+        return "hi " + user;
+    }
+    user = "bob";
+    greet();
+    user = "alice";
+    greet();
+    greet();
+    console.count("bob"); // đổi user để biết dc sự thay đổi
+</script>

@@ -1,0 +1,36 @@
+<meta charset="UTF-8"></meta>
+<pre>
+    Sử dụng phần tử canvas
+    HTML cung cấp phần tử canvas cho việc xây dựng hình ảnh dựa trên raster.
+
+    Đầu tiên xây dựng một khung vẽ để giữ thông tin pixel hình ảnh
+
+    var canvas = document.createElement('canvas');
+    canvas.width = 500;
+    canvas.height = 250;
+
+    Sau đó chọn một bối cảnh cho canvas, trong trường hợp 2 chiều: 
+
+    var ctx = canvas.getContext('2d');
+
+    Sau đó đặt thuộc tính cho văn bản:
+
+    ctx.font = '30px Cursive';
+    ctx.fillText("Hello world!", 50, 50);
+
+    Sau đó thêm phần tử canvas trong trang để lấy hiệu ứng:
+
+    document.body.appendChild(canvas);
+</pre>
+<script>
+    var canvas = document.createElement('canvas');
+    canvas.width = 500;
+    canvas.height = 250;
+
+    var ctx = canvas.getContext('2d');
+
+    ctx.font = '30px Cursive';
+    ctx.fillText("Hello world!", 50, 50);
+    
+    document.body.appendChild(canvas);
+</script>

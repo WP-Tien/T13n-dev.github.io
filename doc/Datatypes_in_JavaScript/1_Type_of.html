@@ -1,0 +1,58 @@
+<meta charset="UTF-8"></meta>
+<pre>
+    typeof là hàm 'chính thức' mà người ta sử dụng để lấy loại JavaScript, tuy nhiên trong một số trường hợp nhất định, nó có thể mang lại
+    một số kết quả bất ngờ ...
+
+    // Strings
+    console.log( typeof "String" );
+    console.log( typeof Date(2011,01,01) );
+
+    // Numbers
+    console.log( typeof 42 );
+
+    // Boolean
+    console.log( typeof true );
+    console.log( typeof false );
+
+    // Object 
+    console.log( typeof {} );
+    console.log( typeof [] );
+    console.log( typeof null );
+    console.log( typeof /aaa/ );
+    console.log( typeof Error() );
+
+    // Functions 
+    console.log( typeof function(){} );
+
+    // Undefined 
+    var var1;
+    console.log( typeof var1 );
+
+</pre>
+<script>
+    // Strings
+    console.log( typeof "String" );
+    console.log( typeof Date(2011,01,01) );
+
+    // Numbers
+    console.log( typeof 42 );
+
+    // Boolean
+    console.log( typeof true );
+    console.log( typeof false );
+
+    // Object 
+    console.log( typeof {} );
+    console.log( typeof [] );
+    console.log( typeof null );
+    console.log( typeof /aaa/ );
+    console.log( typeof Error() );
+
+    // Functions 
+    console.log( typeof function(){} );
+
+    // Undefined 
+    var var1;
+    console.log( typeof var1 );
+
+</script>

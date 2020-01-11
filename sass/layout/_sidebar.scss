@@ -1,0 +1,41 @@
+ul.summary {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+    a {
+      display: block;
+      padding: 10px 15px;
+      border-bottom: none;
+      color: #364149;
+      background: transparent;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    ul {
+      li {
+        a {
+          padding: 1px;
+        }
+      }
+    }
+  }
+  li.divider {
+    height: 1px;
+    margin: 7px 0;
+    overflow: hidden;
+    background: rgba(17, 13, 13, 0.03);
+  }
+  li.active {
+    a {
+      color: #008cff;
+      background: 0 0;
+      text-decoration: none;
+    }
+  }
+}

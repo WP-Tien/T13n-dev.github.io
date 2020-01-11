@@ -1,0 +1,59 @@
+%table-of-contents {
+  grid-area: sidebar;
+  overflow-y: scroll;
+  border-right: 1px solid rgba( 0, 0, 0, .07);
+  color: #364149;
+  background-color: #fafafa;
+}
+
+%book-body {
+  grid-area: main;
+  overflow-y: scroll;
+}
+
+.book {
+  display: grid;
+  grid-template-columns: 0px 1fr;
+  grid-template-areas:  "sidebar main";
+  grid-template-rows: 100vh;
+  position: relative;
+  transition: 250ms ease;
+
+  .table-of-contents {
+    grid-area: sidebar;
+
+    @extend %table-of-contents;
+  }
+
+  .book-body {
+    @extend %book-body;
+  }
+}
+
+.book.with-table-of-contents {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-areas:  "sidebar main";
+  grid-template-rows: 100vh;
+  position: relative;
+  transition: 250ms ease;
+
+  .table-of-contents {
+    grid-area: sidebar;
+
+    @extend %table-of-contents;
+  }
+  
+  .book-body {
+    grid-row: 100vh;
+    @extend %book-body;
+  }
+}
+
+.book-content {
+  margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 15px 40px 15px;
+}
+

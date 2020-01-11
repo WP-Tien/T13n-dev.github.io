@@ -1,0 +1,81 @@
+<meta charset="UTF-8"></meta>
+<pre>
+    Thoạt nhìn có vẻ như <b>null</b> và <b>undefined</b> về cơ bản là giống nhau, tuy nhiên có sự tinh tế nhưng
+    sự khác biệt quan trọng.
+    <b>undefined</b> là sự vắng mặt của một giá trị trong trình biên dịch, bởi vì nếu nó phải là một giá trị, thì chưa được đặt một,
+    giống như trường hợp của một biến không được gán.
+    <b>undefined</b> là một giá trị toàn cầu thể hiện sự vắng mặt của một giá trị được gán.
+    typeof <b>undefined</b>  === '<b>undefined</b>'
+    <b>null</b> là một đối tượng chỉ ra rằng một biến đã được gán rõ ràng "không có giá trị".
+    typeof <b> null </b> === 'object'
+    Đặt một biến thành <b>undefined</b> có nghĩa là biến đó không tồn tại. Một số quy trình, chẳng hạn như JSON
+    tuần tự hóa, có thể loại bỏ các thuộc tính <b>undefined</b> từ các đối tượng. Ngược lại, các thuộc tính <b>null</b> chỉ ra sẽ được bảo tồn
+    bạn có thể truyền đạt một cách rõ ràng khái niệm về một tài sản "trống".
+
+    Đánh giá sau đây không xác định:
+    Một biến khi nó được khai báo nhưng không được gán một giá trị (nghĩa là được xác định)
+    let foo;
+    console.log ('không xác định?', foo === undefined);
+    // is undefined? true
+
+    Truy cập giá trị của một thuộc tính không tồn tại
+    let foo = {a: 'a'};
+    console.log ('không xác định?', foo.b === undefined);
+    // is undefined? true
+
+    Giá trị trả về của hàm không trả về giá trị
+    function foo () { return; }
+    console.log ('không xác định?', foo () === undefined);
+    // is undefined? thật
+
+    Giá trị của một đối số hàm được khai báo nhưng đã bị bỏ qua khỏi lệnh gọi hàm
+    function foo (param) {
+    console.log ('không xác định?', param === undefined);
+    }
+    foo ('a');
+    foo ();
+    // is undefined? false
+    // is undefined? true
+
+    // Chỉ trong trình duyệt
+    console.log (window.undefined); // undefined
+    window.hasOwnProperty ('undefined'); // true
+</pre>
+
+<script>
+// undefined is the absence of a value in the compiler, because where it should be a value, there hasn't been put one, like the case of an unassigned variable
+
+// undefined is a global value that represents the absence of an assigned value.
+console.log( typeof undefined ); // undefined
+
+// null is an object that indicates that a variable has been explicitly assigned "no value".
+console.log( typeof null ); // object 
+
+// A variable when it is declared but not assigned a value (i.e. defined).
+let foo1;
+console.log( 'foo1 is undefined ?', foo1 === undefined );
+
+// Accessing the value of a property that doesn't exist
+let foo2 = { a: 'a' };
+console.log( 'foo2 is undefined ?', foo2.b === undefined );
+
+// The return value of a function that doesn't return a value
+function foo3() {
+    return;
+} 
+console.log( 'foo3_func is undefined ?', foo3() === undefined );
+
+// The value of a function argument that is declared but has been omitted from the function cal
+function foo4( param ) {
+ console.log( 'foo4_func is undefined', param === undefined );
+}
+
+foo4('a'); // false; had defined
+foo4(); // true; undefined
+
+//undefined is also a property of the global window object. 
+console.log( window.undefined ); // undefined
+console.log ( window.hasOwnProperty('undefined') ); //true
+console.log( window );
+
+</script>

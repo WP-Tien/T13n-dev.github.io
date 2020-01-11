@@ -1,0 +1,54 @@
+<meta charset="utf-8"></meta>
+<pre>
+    Như đã biết trong Vanilla Javascript, với từ khóa var chúng ta có thể khai báo đa dạng các kiểu biến như number, string, boolean, etc. Trừ trường hợp được khai báo bên trong 1 
+    <b>function</b> (khi đó biến var sẽ có scope là <b> function/locally scoped </b>), Ngoài biến var sẽ có scope là <b>globally scoped</b>. Đặc biệt, biến var còn có thêm tính chất hoisting: nghĩa là dù khai 
+    báo ở đâu thì biến đều sẽ được đem lên đầu scope trước khi code được thực hiện.
+
+    function foo() {
+        bar();
+        var x = 1;
+    }
+
+    is actually interpreted like this:
+
+    function foo() {
+        var x;
+        bar();
+        x = 1;
+    }
+
+    ///////// Thêm cái nữa /////////
+    function boo (){
+        console.log(greeting);
+        var greeting = " say Hello ";
+    }
+
+    function boo() {
+        var greeting;
+        console.log(greeting); // greeting is undefined
+        greeting = "say hello";
+    }
+
+
+    var greeting = "hey hi";
+    var times = 4;
+
+    if (times > 3) {
+        var greeting = "say Hello instead"; 
+    }
+
+    console.log(greeting); //"say Hello instead"
+
+    Vì thỏa điều kiện if nên greeting khi này sẽ có giá trị là "say Hello instead" và sẽ vẫn giữ nguyên giá trị này sau khi thoát ra khỏi block if. Điều này sẽ không có gây vấn đề 
+    gì nhưng nếu trong trường hợp code của chúng ta lên đến hàng trăm, hàng nghìn dòng code, hoặc chúng ta cũng không biết được giá trị của biến liệu có bị thay đổi ở đoạn code nào 
+    sẽ dẫn đến việc debug là vô cùng khó khăn. Để giải quyết vấn đề trên thì ES6 cung cấp cho chúng ta thêm 2 cách khác để khai báo biến bao gồm let và const.
+
+
+    Ngoài ra, khi ở global scope (tức là không nằm trong một function nào cả), từ khóa var tạo ra thuộc tính mới cho global object (this), còn let thì không:
+
+    var x = 'global';
+    let y = 'global';
+    console.log(this.x); // "global"
+    console.log(this.y); // undefined
+
+</pre>

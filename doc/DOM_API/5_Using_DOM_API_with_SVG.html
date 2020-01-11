@@ -1,0 +1,44 @@
+<meta charset="UTF-8"></meta>
+<pre>
+    SVG là để xây dựng đồ họa nền tản vector có thể giản nở :v, và có thể được sử dụng trong HTML
+
+    Đầu tiên tạo một phần tử chứ SVG với nhựng kích thước:
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.width = 500;
+    svg.height = 50;
+
+    Sau đó một phần tử văn bản với vĩ trí mong muốn và đặc tính font.
+    var text = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    text.setAttribute('x', '0');
+    text.setAttribute('y', '50');
+    text.style.fontFamily = 'Times New Roman';
+    text.style.fontSize = '50';
+
+    Then add the actual text to display to the textelement:
+
+    text.textContent = 'Hello World!';
+
+    Cuối cùng thêm phần tử văn bản vào vùng chưa svg và thêm phần tử svg vào HTML document:
+    
+    svg.appendChild(text);
+    document.body.appendChild(svg);
+</pre> 
+
+<script>
+    
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.width = 500;
+    svg.height = 50;
+
+    var text = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    text.setAttribute('x', '0');
+    text.setAttribute('y', '50');
+    text.style.fontFamily = 'Times New Roman';
+    text.style.fontSize = '50';
+
+    text.textContent = 'Hello World!';
+
+    svg.appendChild(text);
+    document.body.appendChild(svg);
+
+</script>

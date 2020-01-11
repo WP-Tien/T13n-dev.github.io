@@ -1,0 +1,56 @@
+<meta charset="utf-8"></meta>
+<pre>
+    Trong ECMAScript 6, khi sử dụng cú pháp module (import/export), mỗi tệp sẽ trở thành module riêng với không gian tên riêng, 
+    Các chức năng cấp độ cao nhất và những biến không gây ô nhiễm(pollute) giông gian toàn cục. Để hiển thị(expose) các functions, classes, 
+    variables cho các modules để import bạn có thể sử dụng từ khóa export.
+
+    // not exported 
+    function somethingPrivate() {
+        console.log(' TOP SECRET ');
+    }
+
+    export const PI = 3.14;
+    
+    export function doSomething() {
+        console.log(' Hello from a module !');
+    }
+
+    function doSomethingElse() {
+        console.log('Something else');
+    }
+
+    export {doSomethingElse}
+
+    export class Myclass {
+        test();
+    }
+</pre>
+<script>
+    // not exported 
+    // function somethingPrivate() {
+    //     console.log(' TOP SECRET ');
+    // }
+
+    // export const PI = 3.14;
+    
+    // export function doSomething() {
+    //     console.log(' Hello from a module !');
+    // }
+
+    // function doSomethingElse() {
+    //     console.log('Something else');
+    // }
+
+    // export {doSomethingElse}
+
+    // export class Myclass {
+    //     test();
+    // }
+</script>
+<pre>
+    Chỉ có những giá trị được export rõ ràng sẽ tồn tại sẵn bên ngoài module. 
+    Mọi thứ khác có thể được coi là riêng tư hoặc không thể truy cập.
+
+    Giờ cho tất cả đoạn mã trên vào module.js, nhớ thêm type = module vào đoạn chèn script
+</pre>
+<script src="script.js" type="module"></script>

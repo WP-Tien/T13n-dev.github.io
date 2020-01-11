@@ -1,0 +1,73 @@
+<meta charset="utf-8" ></meta>
+<pre>
+    Arr function không định nghĩa giá trị this của riêng nó giống như function :D 
+
+    var x = 0;
+
+    function DelayPrint( x, timeout ) {
+        this.x = x;
+
+        setTimeout( function print() {
+            console.log( `The value is ${this.x}.` );
+        }, timeout );
+    } 
+
+    let p = new DelayPrint(1, 1000); // => The value is 0.
+</pre>
+<script>
+
+    var x = 0;
+
+    function DelayPrint( x, timeout ) {
+        this.x = x;
+
+        setTimeout( function print() {
+            console.log( `The value is ${this.x}.` );
+        }, timeout );
+    } 
+
+    let p = new DelayPrint(1, 1000); // => The value is 0.
+
+</script>
+<pre>
+    Trong chế độ none-strict, function print định nghĩa this chính là đối tượng global (đối với trình duyệt thì đó là window). 
+    Do đó, this.x tương đương với window.x và bằng 0.
+
+    Để đoạn code trên hoạt động theo đúng mong muốn thì bạn phải sửa lại như sau:
+</pre>
+<script>
+
+    var x = 0;
+
+    function DelayPrint(x, timeout) {
+    this.x = x;
+    let self = this;
+
+    setTimeout(function print() {
+        console.log(`The value is ${self.x}.`);
+    }, timeout);
+    }
+
+    let p = new DelayPrint(1, 1000);
+    // => The value is 1.
+
+</script>
+<pre>
+    Việc sử dụng arr function.
+</pre>
+<script>
+
+    var x = 0;
+
+    function DelayPrint(x, timeout) {
+    this.x = x;
+
+    setTimeout(() => {
+        console.log(`The value is ${this.x}.`);
+    }, timeout);
+    }
+
+    let p = new DelayPrint(1, 1000);
+    // => The value is 1.
+
+</script>

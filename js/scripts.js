@@ -1,60 +1,86 @@
-$(function() {
+import Helper from './helper.js';
+// rules of this book: mỗi chapter là 1 section, h2 là chuyên mục, h3, h4, h5 ...
 
-  // Global context
-  const $nav          = $('.nav ol');
-  const $menu         = $('.menu');
-  const $wrapper      = $('.wrapper');
-  const $band         = $('.band');
-  var creNav        = '';
+const helper = new Helper();
+// console.log( helper.change_alias('Hữu Tiến') );
 
-  $menu.on("click", function() {
-    if ( $wrapper.hasClass("is-open") ) {
-      $menu.removeClass("is-active");
-      $wrapper.removeClass("is-open");
-    } else {
-      $menu.addClass("is-active");
-      $wrapper.addClass("is-open");
-    }
-  });
+const hamburger = document.getElementsByClassName('btn-hamburger')[0];
+const book = document.getElementsByClassName('book')[0];
 
-  $band.each( function( value, index) {
-    var name = change_alias( $(index).attr("id", trName).find("h1").text() );
-    var trName =  name.replace(/\s+/g, '_');
+const bookSection = document.querySelectorAll('section');
+const arrBookSection = Array.from(bookSection);
 
-    creNav += "<li><a href='#"+ trName +"' >" + $(index).attr("id", trName).find("h1").text() + "</a><ul>";
+var reNav = '';
 
-    $sections = $(index).find("h2");
-    $sections.each( function( value, index ) { 
-      
-      var name = change_alias( $(index).text() );
-      var trName =  name.replace(/\s+/g, '_');
-      // \slà biểu thức chính cho "khoảng trắng" và glà cờ "toàn cầu", nghĩa là khớp với TẤT CẢ \s(khoảng trắng).
+const tableOfContents = document.querySelector('.table-of-contents nav .summary');
 
-      creNav += "<li><a href='#"+ trName +"'>" + $(index).text() + "</a></li>";
+class Book {
+
+  setEventBtnMenu() {
+    hamburger.addEventListener('click', function ( e ) {
+      e.preventDefault();
     
+      hamburger.classList.toggle("is-actived");
+      book.classList.toggle("with-table-of-contents");
+    });
+  }
+
+  generateTableOfContent() {
+    arrBookSection.forEach((value, index, array) => {
+
+      if ( value.querySelector('h1') !== null ) { // Kiểm tra section có h1 tồn tại
+        const titleChapterSelect = value.querySelector('h1');
+
+        const generateIdChapter =  helper.change_alias( titleChapterSelect.innerHTML ).replace(/\s+/g,"_");
+        
+        // set id for chapter h1 tag
+        titleChapterSelect.setAttribute("id", generateIdChapter);
+
+        reNav += `<li class='chapter'>`;
+        reNav += `<a href='#${generateIdChapter}'>`;
+        reNav +=  ` Chapter ${index + 1} : ${titleChapterSelect.innerHTML.trim()} `;
+        reNav += `</a>`;
+          if ( value.querySelector('h2') !== null ) {  // Kiểm tra section có h1 tồn tại
+            const subTitleChapter = value.querySelectorAll('h2');
+            const arrsubTitleChapter = Array.from(subTitleChapter);
+
+              arrsubTitleChapter.forEach((value, index, array) => {
+
+                 const generateIdPart = helper.change_alias( value.innerHTML ).replace(/\s+/g,"_");
+
+                 // set id for part in per chapters h2 tag
+                 arrsubTitleChapter[index].setAttribute("id", generateIdPart);
+
+                reNav += `<ul>`;
+                  reNav += `<li>`;
+                    reNav += `<a href='#${generateIdPart}'>`;
+                      reNav += value.innerHTML.trim();
+                    reNav += `</a>`;
+                  reNav += `</li>`;
+                reNav += `</ul>`;
+              });
+          }
+        reNav += `</li>`; 
+      }
     });
 
-    creNav += "</ul></li>";
+    const nodeReNav = new DOMParser().parseFromString( reNav, 'text/html' );
+    const reNavClean = nodeReNav.body;
+    // tableOfContents.innerHTML = reNav;
 
-  });
+    tableOfContents.append(reNavClean);
+  }
 
-  $nav.html( creNav );
-
-  function change_alias(alias) {
-    var str = alias;
-    str = str.toLowerCase();
-    str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
-    str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e"); 
-    str = str.replace(/ì|í|ị|ỉ|ĩ/g,"i"); 
-    str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o"); 
-    str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u"); 
-    str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y"); 
-    str = str.replace(/đ/g,"d");
-    str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ");
-    str = str.replace(/ + /g," ");
-    str = str.trim(); 
-    return str;
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+
+  const book = new Book();
+
+  // set event button menu
+  book.setEventBtnMenu();
+  // 
+  book.generateTableOfContent();
 
 });
+  

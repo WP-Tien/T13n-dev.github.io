@@ -1,0 +1,76 @@
+<meta charset="utf-8"></meta>
+<b>
+    Default sort
+</b>
+<pre>
+    Note: The .sort() method is impure. .sort() will sort the array in-place, i.e., instead of creating a
+    sorted copy of the original array, it will re-order the original array and return it
+    // var sort = ['s', 't', 'a', 34, 'K', 'o', 'v', 'E', 'r', '2', '4', 'o', 'W', -1, '-4'].sort();
+
+    // console.log( sort );
+</pre>
+<script>
+    // var sort = ['s', 't', 'a', 34, 'K', 'o', 'v', 'E', 'r', '2', '4', 'o', 'W', -1, '-4'].sort();
+
+    // console.log( sort );
+</script>
+<pre>
+    Note: The uppercase characters have moved above lowercase. The array is not in alphabetical order, and
+    numbers are not in numerical order.
+</pre>
+<b>
+    Alphabetical Sort
+</b>
+<pre>
+    var alSort = ['s', 't', 'a', 'c', 'K', 'o', 'v', 'E', 'r', 'f', 'l', 'W', '2', '1'].sort((a, b) => {
+        return a.localeCompare(b);
+    });
+
+    console.log( alSort );
+</pre>
+<script>
+    // var alSort = ['s', 't', 'a', 'c', 'K', 'o', 'v', 'E', 'r', 'f', 'l', 'W', '2', '1'].sort((a, b) => {
+    //     return a.localeCompare(b);
+    // });
+
+    // console.log( alSort );
+</script>
+<pre>    
+    Note: The above sort will throw an error if any array items are not a string. If you know that the array
+    may contain items that are not strings use the safe version below.
+    var alSortError = ['s', 't', 'a', 'c', 'K', 1, 'v', 'E', 'r', 'f', 'l', 'o', 'W'].sort((a, b) => {
+        return a.toString().localeCompare(b);
+    });
+    console.log( alSortError );
+</pre>
+<script>
+    // var alSortError = ['s', 't', 'a', 'c', 'K', 1, 'v', 'E', 'r', 'f', 'l', 'o', 'W'].sort((a, b) => {
+    //     return a.toString().localeCompare(b);
+    // });
+    // console.log( alSortError );
+</script>
+
+<b>
+    String sorting by length (longest first/ shortest first)
+</b>
+<pre>
+    var lengthSort = ["zebras", "dogs", "elephants", "penguins"].sort(function(a, b) {
+        return b.length - a.length;
+    });
+
+    console.log( lengthSort );
+</pre>
+<script>
+    var lengthSort = ["zebras", "dogs", "elephants", "penguins"].sort(function(a, b) {
+        return b.length - a.length;
+    });
+
+    console.log( lengthSort );
+</script>
+<b>Numerical Sort (ascending)</b>
+<pre>
+    [100, 1000, 10, 10000, 1].sort(function(a, b) {
+        return a - b;
+    });
+</pre>
+

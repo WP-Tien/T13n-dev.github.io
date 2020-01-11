@@ -1,0 +1,28 @@
+<meta charset="UTF-8"></meta>
+<pre>
+    Phương thức alert() hiển thị một hộp trực quan trên màn hình. Tham số của phương thức alert() được hiển thị đến user trong văn bản thô ( plain text ):
+    
+    window.alert(message);
+
+    Bởi vì window là một đối tượng toàn cục, bạn có thể gọi cũng như sử dụng viết tắt sau đây:
+
+    alert(message);
+
+    Vì thế window.alert() làm cái gì ? Tốt, Hảy lấy một ví dụ sau: 
+
+    alert('hello, world');
+</pre>
+<script>
+    alert('Hello, world');
+</script>
+<pre>
+    The alert method is technically a property of window object, but since all window properties are
+    automatically global variables, we can use alert as a global variable instead of as a property of window -
+    meaning you can directly use alert() instead of window.alert().
+
+    Không giống sử dụng console.log, hành động alert như một (prompt)nhắc nhở phương thức nghĩa là đoạn code gọi alert sẽ ngừng cho đến khi (prompt) nhắc nhở được trả lời. Một cách truyền thống, điều này có nghĩa là không có mã JavaScript nào khác sẽ thực thi cho đến khi cảnh báo bị loại bỏ.
+</pre>
+<script>
+    alert('Pause');
+    console.log('Alert was dismissed');
+</script>
