@@ -45,15 +45,26 @@
   }
   
   .book-body {
-    grid-row: 100vh;
     @extend %book-body;
   }
 }
 
 .book-content {
   margin: 0 auto;
-  max-width: 800px;
   margin: 0 auto;
   padding: 20px 15px 40px 15px;
 }
 
+@media only screen and ( max-width: 600px ) {
+  .book {
+    grid-template-rows: 95vh;
+  }
+
+  .book.with-table-of-contents {
+    grid-template-rows: 95vh;
+  }
+
+  .mobile-bottom-nav {
+    height: 5vh;
+  }
+}

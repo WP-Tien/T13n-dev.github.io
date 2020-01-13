@@ -4,19 +4,30 @@ import Helper from './helper.js';
 const helper = new Helper();
 // console.log( helper.change_alias('Hữu Tiến') );
 
-const hamburger = document.getElementsByClassName('btn-hamburger')[0];
 const book = document.getElementsByClassName('book')[0];
-
 const bookSection = document.querySelectorAll('section');
 const arrBookSection = Array.from(bookSection);
-
 var reNav = '';
-
 const tableOfContents = document.querySelector('.table-of-contents nav .summary');
 
-class Book {
+class Screen {
+  
+  pageWidth() {
+    return window.innerWidth != null? window.innerWidth : document.documentElement &&
+    document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body != null
+    ? document.body.clientWidth : null;
+  }
 
-  setEventBtnMenu() {
+  pageHeight() {
+    return window.innerHeight != null? window.innerHeight : document.documentElement &&
+    document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body !=
+    null? document.body.clientHeight : null;
+  }
+
+}
+
+class Book {
+  setEventBtnMenu( hamburger ) {
     hamburger.addEventListener('click', function ( e ) {
       e.preventDefault();
     
@@ -75,10 +86,17 @@ class Book {
 
 document.addEventListener("DOMContentLoaded", function() {
 
+  const screen = new Screen();
   const book = new Book();
 
+  if ( screen.pageWidth() < 600 ) {
+    var hamburger = document.getElementsByClassName('btn-hamburger')[1]
+  } else {
+    var hamburger = document.getElementsByClassName('btn-hamburger')[0];
+  }
+  
   // set event button menu
-  book.setEventBtnMenu();
+  book.setEventBtnMenu( hamburger );
   // 
   book.generateTableOfContent();
 

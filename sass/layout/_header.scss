@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #7e888b;
+    color: $grey;
     padding: 5px;
 
     > a {
@@ -18,8 +18,14 @@
 
     .social {
         a {
-            color: #7e888b;
+            color: $grey;
             padding-right: 15px;
         }
+    }
+}
+
+@media only screen and ( max-width: 600px) {
+    .book-header {
+        display: none;
     }
 }

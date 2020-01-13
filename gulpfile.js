@@ -4,7 +4,7 @@ const   gulp = require( 'gulp' ),
         browserSync = require('browser-sync').create(),
         sass = require('gulp-sass'),
         cleanCSS = require('gulp-clean-css'),
-        sourcemap = require('gulp-sourcemaps'),
+        sourcemaps = require('gulp-sourcemaps'),
         rename = require('gulp-rename'),
         concat = require('gulp-concat'),
         imagemin = require('gulp-imagemin'),
@@ -18,18 +18,22 @@ const paths = cfg.paths;
 
 gulp.task( 'sass', function() {
     return gulp.src( paths.sass + '/*.scss' )
+    .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe( sass({
         errorLogToConsole: true,
         outputStyle: 'expanded' 
     }).on('error', sass.logError ))
     .pipe(postcss([autoprefixer()]))
+    .pipe(sourcemaps.write(undefined, { sourceRoot: null }))
     .pipe(gulp.dest(paths.css));
 });
 
 gulp.task('minifycss', function() {
     return gulp.src(`${paths.css}/main.css`)
+    .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe( cleanCSS() )
     .pipe( rename({ suffix: '.min' }) )
+    .pipe(sourcemaps.write('./'))
     .pipe( gulp.dest(paths.css) )
 });
 

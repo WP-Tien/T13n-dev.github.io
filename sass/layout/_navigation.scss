@@ -1,0 +1,40 @@
+.mobile-bottom-nav {
+    display: none;
+    position: fixed;
+    bottom:0;
+	left:0;
+	right:0;
+    z-index:1000;
+    
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+	will-change:transform;
+	transform: translateZ(0);
+    box-shadow: 0 -2px 5px -2px #333;
+    background-color: $white;
+    
+    > a {
+        padding: 0 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+        font-weight: 200;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .social {
+        a {
+            color: $grey;
+            padding-right: 15px;
+        }
+    }
+}
+
+@media only screen and ( max-width: 600px ) { 
+    .mobile-bottom-nav {
+        display: flex;
+    }
+}
