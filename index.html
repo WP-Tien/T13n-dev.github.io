@@ -26,7 +26,7 @@
             <li class="divider"></li>
             <li class="chapter active">
               <a href="index.html">
-                Introduction
+                Table of contents
               </a>
             </l i>
             <li class="divider"></li>
@@ -74,13 +74,13 @@
 
           <div class="book-content">
             <section>
-              <h1> Introduction </h1>
+              <h1> [JS] Introduction </h1>
               <p> Đây là tài liệu tôi lấy về từ các nguồn để dễ xem khi quên thôi! Khi tôi làm cái web tỉnh này cũng là lúc tôi đặt bàn tay lên code lại sau những ngày suy sụp của dealine, giao tiếp, bla bla ...Khi mọi thứ trở nên quá áp lực vượt qua sực chịu đựng rồi tuyệt vọng các thím ạ. Giờ tôi chỉ còn cách code(nhẹ) tiếp để tiếp tục chiến đấu sau cú trượt vậy ! </p>
 
               <img src="" class="" alt="">
             </section>
             <section>
-              <h1> Một số khái niệm JavaScript </h1>
+              <h1> [JS] Một số khái niệm JavaScript </h1>
 
               <h2>Parser và Compiler là gì ?</h2>
               <p>
@@ -172,7 +172,7 @@
 </pre>
             </section>
             <section>
-              <h1> How does JavaScript work? </h1>
+              <h1> [JS] How does JavaScript work? </h1>
               <p>
                 <a href=""><img src="images/JS.gif" alt="JS"></a>
               </p>
@@ -524,7 +524,7 @@ function person() { // Execution context
 
             </section>
             <section>
-              <h1> Hoisting Javascript </h1>
+              <h1> [JS] Hoisting Javascript </h1>
               <img src="images/Hoisting.jpg" alt="Hoisting">
 
               <p>
@@ -666,7 +666,47 @@ function person() { // Execution context
             <p>Output sẽ là Gem.</p>
             </section>
             <section>
-              <h1> [PHP] Wordpress Menu Nav Walker</h1>
+              <h1> [WP] Debug ways </h1>
+
+              <h2> Hiển thị tất cả Queries trên một trang </h2>
+              <p>
+                Trong thư mục: 
+              </p>
+              <blockquote>
+                wp-config.php
+              </blockquote>
+<pre>
+// Hiển thị các câu truy vấn trên cùng một trang của WP
+define("SAVEQUERIES", true);
+</pre>
+            Tiếp ở functions.php đối với theme, ở plugin bỏ ở đâu tùy bạn:
+            <blockquote>
+              functions.php
+            </blockquote>
+<pre>
+  function debug_output() {
+
+    global $wpdb;
+    echo "<pre>";
+    print_r(  $wpdb->queries );
+    echo "</pre>";
+  
+  }
+  add_action( "wp_footer", "debug_output"  );
+</pre>
+            <p>
+              Kết quả: 
+            </p>
+            <img src="images/show_all_queries.png" alt="queries">
+            <p>
+              Trong đó: có câu truy vấn, tốc độ, các file liên quan bla bla .... Mấy bạn tìm hiểu thêm.
+            </p>
+            </section>
+            <section>
+              <h1> [WP] Hooks <3 </h1>
+            </section>
+            <section>
+              <h1> [WP] Menu Nav Walker</h1>
             </section>
             
             <hr>
