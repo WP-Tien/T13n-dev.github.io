@@ -703,7 +703,23 @@ define("SAVEQUERIES", true);
             </p>
             </section>
             <section>
-              <h1> [WP] Hooks <3 </h1>
+              <h1> [JS] Tại sao tính bất biến là quan trọng</h1>
+              <h2>Sửa đổi dữ liệu trực tiếp</h2>
+<pre>
+var player = {score: 1, name: 'Jeff'};
+player.score = 2;
+// Now player is {score: 2, name: 'Jeff'}
+</pre>
+              <h2>Sửa đổi dữ liệu gián tiếp</h2>
+<pre>
+var player = {score: 1, name: 'Jeff'};
+
+var newPlayer = Object.assign({}, player, {score: 2});
+// Now player is unchanged, but newPlayer is {score: 2, name: 'Jeff'}
+
+// Or if you are using object spread syntax proposal, you can write:
+// var newPlayer = {...player, score: 2};
+</pre>
             </section>
             <section>
               <h1> [WP] Menu Nav Walker</h1>
